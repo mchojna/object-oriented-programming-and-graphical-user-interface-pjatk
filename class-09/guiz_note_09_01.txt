@@ -1,0 +1,50 @@
+import java.awt.Color;
+import java.awt.Font;
+import javax.swing.*;
+
+class SimpleEditor {
+
+    public static void main(String[] args)
+    {
+        new SimpleEditor(args);
+    }
+
+    public SimpleEditor(String[] args)
+    {
+        SwingUtilities.invokeLater(() -> createGUI(args));
+    }
+
+    protected void createGUI(String[] args)
+    {
+            // utworzenie okna
+        JFrame jf = new JFrame();
+
+            // określenie tytułu okna
+        jf.setTitle("Edytor");
+
+            // obsługa zamknięcia okna JFrame
+        jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+            // określenie położenia okna
+        jf.setLocation(50,50);
+
+            // uniemożliwienie zmiany rozmiarów okna
+        jf.setResizable(true);
+
+        JTextArea jta = new JTextArea(20,30);
+
+        Color fc = JColorChooser.showDialog(null, "Wybierz kolor", Color.BLACK);
+        jta.setForeground(fc);
+
+        if (args.length >=3)
+            jta.setFont(Font.decode("args[0]" + "-" + args[1] + "-" + args[2]));
+
+        JScrollPane jsp = new JScrollPane(jta);
+        jf.setContentPane(jsp);
+
+        jf.pack();
+
+            // wyświetlenie okna
+        jf.setVisible(true);
+    }
+}

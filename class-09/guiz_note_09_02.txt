@@ -1,0 +1,55 @@
+import java.awt.Color;
+import java.awt.FlowLayout;
+import javax.swing.*;
+
+public class MyButton {
+
+    public static void main(String[] args)
+    {
+    	new MyButton();
+    }
+
+    public MyButton()
+    {
+    	SwingUtilities.invokeLater(this::createGUI);
+    }
+
+    	// ktory kolor do zmiany
+    private int c = 0;
+
+    protected void createGUI()
+    {
+    		// utworzenie okna
+        JFrame jf = new JFrame();
+
+        	// określenie tytułu okna
+        jf.setTitle("Przycisk");
+
+      		// obsługa zamknięcia okna JFrame
+        jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        	// określenie położenia okna
+        jf.setLocation(50,50);
+
+        	// uniemożliwienie zmiany rozmiarów okna
+        jf.setResizable(true);
+
+        Color[] kolory = {Color.red, Color.blue, Color.green};
+
+        JButton jb = new JButton("Przycisk");
+
+        jb.addActionListener(e -> {
+                                    jb.setBackground(kolory[c%3]);
+                                        //  dla koloru tla JFrame
+                                    jf.getContentPane().setBackground(kolory[(c+1)%3]);
+                                    c = (c+1)%3;
+                                });
+
+        jf.setLayout(new FlowLayout());
+        jf.add(jb);
+
+        jf.pack();
+        	// wyświetlenie okna
+        jf.setVisible(true);
+    }
+}

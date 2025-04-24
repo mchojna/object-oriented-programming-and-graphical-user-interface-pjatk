@@ -1,0 +1,11 @@
+Ważne znaczenie w zastosowaniu kolekcji mają metody: 
+
+public boolean equals(Object ...) 
+
+oraz 
+
+public int hashCode()
+
+z klasy Object.
+
+Te metody należy przedefiniować (ang. override) jeśli ich pierwotna wersja (w klasie Object) nie działa w konkretnych sytuacjach.

@@ -1,0 +1,14 @@
+A. Tematy:
+
+1. Klasy - obiekty
+2. Dziedziczenie, polimorfizm
+3. Interfejsy, klasy abstrakcyjne, klasy anonimowe, ...
+4. Typy generyczne
+5. Lamda-wyrażenia, kolekcje, strumienie, ...
+6. Wątki
+
+B. Formuła:
+
+1. Test wielokrotnego wyboru
+2. Analiza kodu
+3. Zadanie praktyczne

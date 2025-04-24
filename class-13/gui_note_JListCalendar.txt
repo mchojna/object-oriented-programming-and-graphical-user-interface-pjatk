@@ -1,0 +1,19 @@
+import java.time.LocalDate;
+import java.util.Locale;
+
+
+	// Aktualny dzień
+LocalDate dzis = LocalDate.now();
+	
+	// Dzień z podanymi: rok, miesiąc, dzień
+LocalDate jakisDzien = LocalDate.of(rok, miesiac, dzien);
+
+	// dla danego dnia (typu LocalDate), np. 15.6.2024
+dzis.getMonthValue() zwraca miesiąc (6)
+dzis.getYear() zwraca rok (2024)
+dzis.getDayOfMonth() zwraca dzień miesiąca (15)
+dzis.lengthOfMonth() zwraca liczbę dni miesiąca (30)
+
+	// jak uzyskać nazwy dni tygodnia w danym języku
+Locale lokalizacja = new Locale("PL");
+String d = jakisDzien.getDayOfWeek().getDisplayName(TextStyle.FULL, lokalizacja);	// "wtorek"/"tuesday"/...

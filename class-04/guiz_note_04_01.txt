@@ -1,0 +1,65 @@
+public enum E {
+       VALUE1, VALUE2;
+};
+
+
+	// https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/Comparable.html
+class K implements Comparable<K> {
+
+	// ...
+
+	@Override
+	public int compareTo(K ob)
+	{
+			   // porównujemy 2 obiekty: this, ob
+			   // wywołanie: obiekt1.compareTo(obiekt2)
+
+	        // ...
+
+	           // wynik < 0 kiedy uważamy, że this < ob
+	           // wynik = 0 kiedy uważamy, że this = ob
+	           // wynik > 0 kiedy uważamy, że this > ob
+	        return wynik;
+	}
+}
+
+	// https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/util/Comparator.html
+class InnyPorzadek implements java.util.Comparator<K> {
+
+	@Override
+	public int compare(K ob1, K ob2)
+	{
+	        // ...
+
+	           // wynik < 0 kiedy uważamy, że ob1 < ob2
+	           // wynik = 0 kiedy uważamy, że ob1 = ob2
+	           // wynik > 0 kiedy uważamy, że ob1 > ob2
+	        return wynik;
+	}
+}
+
+
+public class Test {
+
+  public static void main(String[] args) {
+
+	  java.util.List<K> lista;// = ...
+
+	  // ...
+
+			// sortowanie listy obiektów typu K zgodnie
+            // z tzw. naturalnym porządkiem, określonym w Comparable<K>
+	  Collections.sort(lista);
+
+            // sortowanie listy obiektów zgodnie
+            // z innym podanym porządkiem
+	  Collections.sort(lista, new InnyPorzadek(...));
+
+            // sortowanie listy obiektów zgodnie
+            // porządkiem, podanym jako wyrażenie lambda
+	  Collections.sort(lista, (ob1, ob2) -> { kod/wynik metody compare });
+
+	  // ..
+  }
+
+}

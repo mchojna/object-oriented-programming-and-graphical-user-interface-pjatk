@@ -1,0 +1,74 @@
+import java.awt.*;
+import javax.swing.*;
+
+public class Zad {
+	LayoutManager[] rozklady = { new BorderLayout(), new FlowLayout(), 
+									 new FlowLayout(FlowLayout.LEFT), 
+									 new FlowLayout(FlowLayout.RIGHT),
+									 new GridLayout(1, 0), new GridLayout(0, 1), 
+									 new GridLayout(3, 2)
+								   };
+		String[] tytul = {"BorderLayout", "FlowLayout Std", "FlowLayout Left" ,
+							"FlowLayout Right", "GridLayout 1 row", "GridLayout 1 col",
+							"GridLayout 3rows x 2cols" };
+	
+	
+	public static void main(String[] args)
+	{
+		new Zad(args);
+	}
+
+	public Zad(final String[] args)
+	{
+		SwingUtilities.invokeLater(() -> createGui(args));
+	}
+
+	private void createGui(String[] args)
+	{
+		if (args.length == 1 && args[0].length() == 1) {
+			int i = args[0].charAt(0) - 'A';
+			new Rozklady(rozklady[i], tytul[i]);
+		} else
+			new Rozklady(rozklady[0], tytul[0]);
+	}
+}
+
+class Rozklady extends JFrame {
+		
+		public Rozklady(LayoutManager layout, String tytul)
+		{
+			super(tytul);
+			setLayout(layout);
+
+			setLocation(100, 100);
+
+			String[] border = {"North", "West", "Center", "East", "South"};
+
+			for (int i = 1; i < 6 ; i++) {
+
+				JButton b = new JButton("Przycisk " + i);
+				
+				b.setBackground(
+					new Color((int)(Math.random()*256), 
+							  (int)(Math.random()*256), 
+							  (int)(Math.random()*256)
+					)
+				);
+				
+				b.setForeground(
+					new Color((int)(Math.random()*256), 
+							  (int)(Math.random()*256), 
+							  (int)(Math.random()*256)
+					)
+				); 
+				
+				add(b, border[i-1]);
+
+			}
+			
+			setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			pack();
+			setVisible(true);
+		}
+
+}

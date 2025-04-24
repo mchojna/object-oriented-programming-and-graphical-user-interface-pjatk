@@ -1,0 +1,36 @@
+import java.util.*;
+
+	// https://docs.oracle.com/en/java/javase/19/docs/api/java.base/java/lang/Comparable.html
+class K implements Comparable<K> {
+
+	// ...
+
+	@Override
+	public int compareTo(K ob)
+	{
+			   // porównujemy 2 obiekty: this, ob
+			   // wywołanie: obiekt1.compareTo(obiekt2)
+
+	        // ...
+
+	           // wynik < 0 kiedy uważamy, że this < ob
+	           // wynik = 0 kiedy uważamy, że this = ob
+	           // wynik > 0 kiedy uważamy, że this > ob
+	        return wynik;
+	}
+}
+
+
+
+public class Test {
+
+  public static void main(String[] args) {
+
+	  K[] arr = ....;
+
+			// sortowanie tablicy obiektów typu K zgodnie
+            // z tzw. naturalnym porządkiem, określonym w Comparable<K>
+	  Arrays.sort(arr);
+  }
+
+}

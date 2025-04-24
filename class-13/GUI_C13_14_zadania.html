@@ -1,0 +1,186 @@
+<!DOCTYPE html PUBLIC "-//w3c//dtd html 4.0 transitional//en">
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="Author" content="TLL">
+    <meta name="GENERATOR" content="Mozilla/4.76 [en] (Win98; U)
+      [Netscape]">
+    <title>GUI 13-14 zaoczne</title>
+  </head>
+  <body>
+    <span style="color: rgb(0, 0, 0); font-family: ''; font-style:
+      normal; font-variant: normal; letter-spacing: normal; line-height:
+      normal; orphans: 2; text-indent: 0px; text-transform: none;
+      white-space: normal; widows: 2; word-spacing: 0px; font-size:
+      medium; display: inline ! important; float: none; font-weight:
+      bold;">MVC w Swingu - JList</span>
+    <p><br>
+      <b><u>Zadanie 26</u><u><br>
+        </u></b><b><br>
+      </b><span style="font-weight: bold;"></span><span style="color:
+        rgb(0, 0, 0); font-family: ''; font-style: normal; font-variant:
+        normal; letter-spacing: normal; line-height: normal; orphans: 2;
+        text-indent: 0px; text-transform: none; white-space: normal;
+        widows: 2; word-spacing: 0px; font-size: medium; display: inline
+        ! important; float: none; font-weight: bold;">Korzystając z
+        własnego (czyli nie z </span><span style="color: rgb(0, 0, 0);
+        font-family: ''; font-style: normal; font-variant: normal;
+        letter-spacing: normal; line-height: normal; orphans: 2;
+        text-indent: 0px; text-transform: none; white-space: normal;
+        widows: 2; word-spacing: 0px; font-size: medium;"><span
+          style="font-style: italic;">DefaultListModel) </span></span><span
+        style="color: rgb(0, 0, 0); font-family: ''; font-style: normal;
+        font-variant: normal; letter-spacing: normal; line-height:
+        normal; orphans: 2; text-indent: 0px; text-transform: none;
+        white-space: normal; widows: 2; word-spacing: 0px; font-size:
+        medium; display: inline ! important; float: none; font-weight:
+        bold;">modelu danych (rozszerzającego klasę </span><span
+        style="color: rgb(0, 0, 0); font-family: ''; font-style: normal;
+        font-variant: normal; letter-spacing: normal; line-height:
+        normal; orphans: 2; text-indent: 0px; text-transform: none;
+        white-space: normal; widows: 2; word-spacing: 0px; font-size:
+        medium; display: inline ! important; float: none;"><span
+          style="font-style: italic;">javax.swing.</span></span><span
+        style="font-style: italic;">AbstractListModel</span>)<span
+        style="color: rgb(0, 0, 0); font-family: ''; font-style: normal;
+        font-variant: normal; letter-spacing: normal; line-height:
+        normal; orphans: 2; text-indent: 0px; text-transform: none;
+        white-space: normal; widows: 2; word-spacing: 0px; font-size:
+        medium; display: inline ! important; float: none; font-weight:
+        bold;">, stworzyć </span><span style="color: rgb(0, 0, 0);
+        font-family: ''; font-style: normal; font-variant: normal;
+        letter-spacing: normal; line-height: normal; orphans: 2;
+        text-indent: 0px; text-transform: none; white-space: normal;
+        widows: 2; word-spacing: 0px; font-size: medium; display: inline
+        ! important; float: none;"><span style="font-style: italic;">JListę</span></span><span
+        style="color: rgb(0, 0, 0); font-family: ''; font-style: normal;
+        font-variant: normal; letter-spacing: normal; line-height:
+        normal; orphans: 2; text-indent: 0px; text-transform: none;
+        white-space: normal; widows: 2; word-spacing: 0px; font-size:
+        medium; display: inline ! important; float: none; font-weight:
+        bold;"> pokazującą informacje o&nbsp;kalendarzu aktualnego
+        miesiąca:<span class="Apple-converted-space">&nbsp;</span></span><br
+        style="color: rgb(0, 0, 0); font-family: ''; font-style: normal;
+        font-variant: normal; letter-spacing: normal; line-height:
+        normal; orphans: 2; text-indent: 0px; text-transform: none;
+        white-space: normal; widows: 2; word-spacing: 0px; font-size:
+        medium; font-weight: bold;">
+      <br style="color: rgb(0, 0, 0); font-family: ''; font-style:
+        normal; font-variant: normal; letter-spacing: normal;
+        line-height: normal; orphans: 2; text-indent: 0px;
+        text-transform: none; white-space: normal; widows: 2;
+        word-spacing: 0px; font-size: medium; font-weight: bold;">
+      <span style="color: rgb(0, 0, 0); font-family: ''; font-style:
+        normal; font-variant: normal; letter-spacing: normal;
+        line-height: normal; orphans: 2; text-indent: 0px;
+        text-transform: none; white-space: normal; widows: 2;
+        word-spacing: 0px; font-size: medium; display: inline !
+        important; float: none; font-weight: bold;">dzień miesiąca -
+        dzień tygodnia<span class="Apple-converted-space"></span></span><br
+        style="color: rgb(0, 0, 0); font-family: ''; font-style: normal;
+        font-variant: normal; letter-spacing: normal; line-height:
+        normal; orphans: 2; text-indent: 0px; text-transform: none;
+        white-space: normal; widows: 2; word-spacing: 0px; font-size:
+        medium; font-weight: bold;">
+      <br style="color: rgb(0, 0, 0); font-family: ''; font-style:
+        normal; font-variant: normal; letter-spacing: normal;
+        line-height: normal; orphans: 2; text-indent: 0px;
+        text-transform: none; white-space: normal; widows: 2;
+        word-spacing: 0px; font-size: medium; font-weight: bold;">
+      <span style="color: rgb(0, 0, 0); font-family: ''; font-style:
+        normal; font-variant: normal; letter-spacing: normal;
+        line-height: normal; orphans: 2; text-indent: 0px;
+        text-transform: none; white-space: normal; widows: 2;
+        word-spacing: 0px; font-size: medium; display: inline !
+        important; float: none; font-weight: bold;">gdzie dzień miesiąca
+        zmienia się od 1 do ostatniego dnia (28, 29, 30 lub 31)
+        aktualnego miesiąca. </span><span style="font-family: serif;">
+        <span style="color: rgb(0, 0, 0); font-family: ''; font-style:
+          normal; font-variant: normal; letter-spacing: normal;
+          line-height: normal; orphans: 2; text-indent: 0px;
+          text-transform: none; white-space: normal; widows: 2;
+          word-spacing: 0px; font-size: medium; display: inline !
+          important; float: none; font-weight: bold;"><span
+            class="Apple-converted-space"><span style="font-family:
+              serif;">Tytuł ramki pokazuje aktualny miesiąc oraz rok.
+              Przy starcie programu widoczne jest zaznaczanie aktualnego
+              dnia.</span></span></span></span><span style="color:
+        rgb(0, 0, 0); font-family: ''; font-style: normal; font-variant:
+        normal; letter-spacing: normal; line-height: normal; orphans: 2;
+        text-indent: 0px; text-transform: none; white-space: normal;
+        widows: 2; word-spacing: 0px; font-size: medium; display: inline
+        ! important; float: none; font-weight: bold;"><span
+          class="Apple-converted-space"> </span></span><span
+        style="color: rgb(0, 0, 0); font-family: ''; font-style: normal;
+        font-variant: normal; letter-spacing: normal; line-height:
+        normal; orphans: 2; text-indent: 0px; text-transform: none;
+        white-space: normal; widows: 2; word-spacing: 0px; font-size:
+        medium; font-weight: bold;"><span style="text-decoration:
+          underline;"></span></span><span style="color: rgb(0, 0, 0);
+        font-family: ''; font-style: normal; font-variant: normal;
+        letter-spacing: normal; line-height: normal; orphans: 2;
+        text-indent: 0px; text-transform: none; white-space: normal;
+        widows: 2; word-spacing: 0px; font-size: medium; font-weight:
+        bold;"><span class="Apple-converted-space"></span></span></p>
+    <b><u> Przykładowy ekran</u>:</b><br>
+    <b><u><br>
+        <img src="rysunki/JList/cal24z.png" alt="JList"
+          moz-do-not-send="true" width="217" height="308"><br>
+        <br>
+        <br>
+        Zadanie 27</u><u><br>
+      </u></b><b><br>
+    </b><span style="color: rgb(0, 0, 0); font-family: ''; font-style:
+      normal; font-variant: normal; letter-spacing: normal; line-height:
+      normal; orphans: 2; text-indent: 0px; text-transform: none;
+      white-space: normal; widows: 2; word-spacing: 0px; font-size:
+      medium; display: inline ! important; float: none; font-weight:
+      bold;">Korzystając z własnego (czyli nie z </span><span
+      style="color: rgb(0, 0, 0); font-family: ''; font-style: normal;
+      font-variant: normal; letter-spacing: normal; line-height: normal;
+      orphans: 2; text-indent: 0px; text-transform: none; white-space:
+      normal; widows: 2; word-spacing: 0px; font-size: medium;"><span
+        style="font-style: italic;">DefaultListModel) </span></span><span
+      style="color: rgb(0, 0, 0); font-family: ''; font-style: normal;
+      font-variant: normal; letter-spacing: normal; line-height: normal;
+      orphans: 2; text-indent: 0px; text-transform: none; white-space:
+      normal; widows: 2; word-spacing: 0px; font-size: medium; display:
+      inline ! important; float: none; font-weight: bold;">modelu
+      danych, </span><b>zaprogramować aplikację zawierającą pole
+      teksowe typu </b><span style="font-style: italic;">JTextField</span><b>
+      i listę typu </b><span style="font-style: italic;">JList</span><b>
+      - umieszczoną w p</b><b>anelu przewijanym typu </b><span
+      style="font-style: italic;">JScrollPane</span>. <span
+      style="font-weight: bold;">Wpisanie tekstu do pola tekstowego i
+      naciśnięcie </span><span style="font-style: italic;">ENTER</span><span
+      style="font-weight: bold;"> powoduje jego umieszczenie na liście w
+      odp. miejsce zgodnie z porządkiem leksykograficznym. Napisy na
+      liście nie mogą się powtarzać. Zaznaczenie jednego (lub kilku)
+      napisu na liście wyprowadza odp. informacje na konsolę.
+      Dwu-kliknięcie myszką na zaznaczonym napisie na liście powoduje
+      usunięcie napisu z listy.<br>
+    </span>
+    <p><span style="font-weight: bold;">&nbsp;</span><b><u><br>
+          Przykładowe ekrany</u>:</b></p>
+    <p><b><br>
+      </b></p>
+    <img moz-do-not-send="true" src="rysunki/JList/list24.png"
+      alt="Capitals" width="1096" height="490">
+    <p><br>
+    </p>
+    <p><span style="color: rgb(0, 0, 0); font-family: ''; font-style:
+        normal; font-variant: normal; letter-spacing: normal;
+        line-height: normal; orphans: 2; text-indent: 0px;
+        text-transform: none; white-space: normal; widows: 2;
+        word-spacing: 0px; font-size: medium; display: inline !
+        important; float: none; font-weight: bold;">Java FX</span> <br>
+      <b><u><br>
+        </u></b> </p>
+    <p><b><u>Zadanie 28</u><br>
+      </b></p>
+    <p> <b> Zrealizować zadanie 25 z graficznym interfejsem użytkownika
+        w Java FX. </b><span style="font-style: italic;
+        text-decoration: underline;">Pomoc:</span><b> Skorzystać z
+        rozkładu </b><span style="font-style: italic;">GridPane</span><b>.</b></p>
+  </body>
+</html>

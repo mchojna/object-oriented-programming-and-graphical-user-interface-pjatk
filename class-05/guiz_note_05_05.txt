@@ -1,0 +1,84 @@
+/*
+1. Statyczne metody klasy java.nio.file.Files zwracają strumień Stream<String>
+
+lines(Path path) - Wszystkie wiersze pliku (z kodowaniem UTF-8)
+lines(Path path, Charset cs) - Wszystkie wiersze pliku (z podanym kodowaniem)
+
+2. String[] split(...) - rozbiór napisu na podnapisy
+
+3. Przydatne metody z java.util.stream.*;
+
+Stream sorted()
+Collector Collectors.groupingBy(...) - dostarcza mapę (java.util.Map) grupując obiekty
+*/
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.Arrays;
+import java.util.function.Predicate;
+import java.util.regex.Pattern;
+import java.util.stream.Stream;
+
+/*	Przykładowy plik:
+Maria 12c 78
+Janina 12c 90
+Bartek 13c 68
+Wiktor 12c 45
+Kasia 12c 66
+Janek 13c 66
+*/
+
+public class Program {
+
+	public static void main(String[] args) throws IOException {
+
+		String fname = "students.txt";
+
+			// użycie strumieni I/O  plikowych
+		BufferedReader br = new BufferedReader(new FileReader(fname));
+		String wiersz;
+		while ((wiersz = br.readLine()) != null) {
+			System.out.println(wiersz);
+		}
+
+		System.out.println();
+
+			// użycie Stream API
+		Stream<String> wiersze;
+		wiersze = Files.lines(Paths.get(fname), StandardCharsets.UTF_8);
+		wiersze.forEach(System.out::println);
+
+			// wiersze zaczynające się od znaku 'M'
+//		wiersze.filter(s -> s.startsWith("M")).forEach(System.out::println);
+
+			// jak wyżej, z klasą anonimową
+//		wiersze.filter(new Predicate<String>() {
+//			@Override
+//			public boolean test(String s) {
+//				return s.startsWith("M");
+//			}
+//		}).forEach(System.out::println);
+
+		System.out.println();
+
+			// rozbiór napisu
+		wiersz = "Maria 12c 78";
+		String[] slowa = wiersz.trim().split(" +");    // separator = 1 lub więcej spacji
+
+		for (String s : slowa)
+			System.out.println(s);    						// Maria 12c 78
+
+			// lub
+		//Stream.of(slowa).forEach(System.out::println);		// Maria 12c 78
+			// lub
+		//Arrays.stream(slowa).forEach(System.out::println);	// Maria 12c 78
+
+			// jeszcze inaczej
+		//Pattern.compile(" +").splitAsStream(wiersz).forEach(System.out::println);
+
+	}
+}

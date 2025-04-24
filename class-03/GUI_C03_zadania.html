@@ -1,0 +1,259 @@
+<!DOCTYPE html PUBLIC "-//w3c//dtd html 4.0 transitional//en">
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="Author" content="TLL">
+    <meta name="GENERATOR" content="Mozilla/4.76 [en] (Win98; U)
+      [Netscape]">
+    <title>GUI 03 zaoczne</title>
+  </head>
+  <body>
+    <b><font size="+1">Comparable, wyrażenia lambda, typy generyczne</font></b><br>
+    <span style="font-weight: bold;"></span><br>
+    <br>
+    <b><u>Zadanie 7</u></b><span style="font-weight: bold;"></span><br>
+    <b>(Rozbudować zadania 5-6)</b><b></b><br>
+    <p><span style="font-weight: bold;">Zmodyfikować klasę </span>Figura<span
+        style="font-weight: bold;"> </span><span style="font-weight:
+        bold;">(z zad. 5-6) poprzez m. in. implementację interfejsu </span>java.lang.Comparable&lt;Figura<span
+        style="font-weight: bold;"></span><span style="font-weight:
+        bold;">&gt;</span><b>,</b><b> czyniąc obiekty-figury </b>porównywalnymi<b>
+        według następujących </b><b>kryteriów uporządkowania: </b><b>wśród
+
+
+        figur </b><span style="font-style: italic;"></span><b>porównujemy
+
+
+        najpierw wartości pola, potem wartości obwodu (tj. kiedy pola są
+        równe), a na końcu porównujemy </b><b>ich unikalne numery
+        (nadane automatycznie przy tworzeniu figur). </b></p>
+    <b> </b>
+    <p><b>Testując zadanie należy skorzystać z klas z </b>java.util<b>:
+        stworzyć kilka obiektów-figur, stworzyć tablicę </b><b>zawierającą
+
+        utworzone figury, posortować tablicę (np. za pomocą </b>Arrays.sort(...)<b>)
+        według zdefiniowanego porządku, wyświetlić na konsolę wszystkie
+        figury z tablicy.</b><b><br>
+      </b></p>
+    <p><b>Poniżej podano przykład poprawnego wydruku figur przed i po
+        sortowaniu:</b></p>
+    <b> <br>
+    </b> Figury przed sortowaniem:<br>
+    <br>
+    Prostokąt<br>
+    Lewy górny - (1,1)<br>
+    Szerokość: 4, Wysokość: 9<br>
+    <br>
+    Koło<br>
+    Środek - (1,1)<br>
+    Promień - 5<br>
+    <br>
+    Prostokąt<br>
+    Lewy górny - (2,2)<br>
+    Szerokość: 6, Wysokość: 6<br>
+    <br>
+    Figury po sortowaniu:&nbsp;&nbsp;&nbsp;&nbsp; <br>
+    <br>
+    Prostokąt<br>
+    Lewy górny - (2,2)<br>
+    Szerokość: 6, Wysokość: 6<br>
+    <br>
+    Prostokąt<br>
+    Lewy górny - (1,1)<br>
+    Szerokość: 4, Wysokość: 9<br>
+    <br>
+    Koło<br>
+    Środek - (1,1)<br>
+    <p> Promień - 5</p>
+    <br>
+    <p> <b><span style="color: black;"><u>Zadanie 8</u><br>
+        </span></b></p>
+    <b><span style="color: black;"></span></b><b><span style="color:
+        black;"></span></b>
+    <p><b><span style="color: black;">Zmodyfikować klasę </span></b><span
+        style="color: black;">Spiewak</span><b><span style="color:
+          black;"> (z zadania 2) poprzez m. in. implementację interfejsu
+        </span></b><span style="color: black;">java.lang.Comparable&lt;Spiewak&gt;</span><b><span
+          style="color: black;">, czyniąc obiekty-śpiewaków
+          porównywalnymi według następujących kryteriów uporządkowania:
+          wśród śpiewaków porównujemy najpierw długość śpiewanego
+          tekstu, potem alfabetycznie nazwiska (tj. w przypadku równej
+          długości tekstów dwóch śpiewaków), a na końcu porównujemy ich
+          unikalne numery (nadane automatycznie przy tworzeniu).<br>
+          <br>
+          Testując zadanie należy skorzystać z klas z </span></b><span
+        style="color: black;">java.util</span><b><span style="color:
+          black;">: stworzyć kilka obiektów-śpiewaków poprzez użycie
+          anonimowych klas wewnętrznych rozszerzających klasę </span></b><span
+        style="color: black;">Spiewak</span><b><span style="color:
+          black;"> (użycie tych klas polega na podawaniu tego, co
+          śpiewak ma śpiewać), stworzyć tablicę </span></b><b><span
+          style="color: black;">utworzonych śpiewaków, posortować
+          tablicę według zdefiniowanego porządku, wyświetlić na konsolę
+          wszystkich śpiewaków z tablicy.<br>
+          <br>
+          Poniżej podano przykład poprawnego wydruku spiewaków po
+          sortowaniu:<br>
+          <br>
+        </span></b><span style="color: black;">(3) Houston: aabbccdefgh<br>
+        (4) Carrey: xyzt123<br>
+        (1) Darrey: eeae<br>
+        (2) Darrey: bebe<br>
+        (5) Madonna: aAa</span></p>
+    <p><span style="color: black;"><br>
+      </span></p>
+    <p><b><span style="color: black;"><u>Zadanie 9</u><br>
+        </span></b></p>
+    <b><span style="color: black;"></span></b><b><span style="color:
+        black;"></span></b>
+    <p><b><span style="color: black;">Zdefiniować interfejs funkcyjny,
+          generyczny </span></b><span style="color: black;">Transform&lt;T,
+
+
+        R&gt;</span><b><span style="color: black;"> z jedną metodą </span></b><span
+        style="color: black;">apply</span><b><span style="color: black;">
+          pobierającą jako argument wartość typu </span></b><span
+        style="color: black;">T</span><b><span style="color: black;"> i
+          zwracającą jako wynik wartość typu </span></b><span
+        style="color: black;">R</span><b><span style="color: black;">.</span></b></p>
+    <p><b><span style="color: black;">Zdefiniować klasę </span></b><span
+        style="color: black;">StrToInt</span><b><span style="color:
+          black;"> implementującą interfejs </span></b><span
+        style="color: black;">Transform</span><b><span style="color:
+          black;"> dla typów </span></b><span style="color: black;">T</span><b><span
+          style="color: black;"> = </span></b><span style="color:
+        black;">String</span><b><span style="color: black;">, </span></b><span
+        style="color: black;">R</span><b><span style="color: black;"> =
+        </span></b><span style="color: black;">Integer</span><b><span
+          style="color: black;">. Implementacja metody </span></b><span
+        style="color: black;">apply</span><b><span style="color: black;">
+          polega na zwracaniu długości tekstu, podanego jako argument.</span></b></p>
+    <p><b><span style="color: black;">W klasie testującej zdefiniować
+          metodę statyczną:<br>
+        </span></b></p>
+    <p><span style="color: black;">&nbsp;&nbsp;&nbsp; private static
+        &lt;T, R&gt;<br>
+        &nbsp;&nbsp;&nbsp; void transform(T[] in, R[] out,
+        Transform&lt;T, R&gt; trans) {<br>
+        &nbsp;&nbsp;&nbsp; <br>
+        &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; // ...<br>
+        &nbsp;&nbsp;&nbsp; }</span></p>
+    <p><span style="color: black;"></span><b><span style="color: black;">która
+
+
+          pobiera dwie tablice tej samej długości </span></b><span
+        style="color: black;">in</span><b><span style="color: black;">
+          typu </span></b><span style="color: black;">T</span><span
+        style="color: black;">[]</span><b><span style="color: black;">,
+        </span></b><span style="color: black;">out</span><b><span
+          style="color: black;"> typu </span></b><span style="color:
+        black;">R</span><span style="color: black;">[]</span><b><span
+          style="color: black;"> oraz obiekt </span></b><span
+        style="color: black;">trans</span><b><span style="color: black;">
+          typu </span></b><span style="color: black;">Transform</span><b><span
+          style="color: black;">. Działanie metody polega na
+          uzupełnieniu tablicy </span></b><span style="color: black;">out</span><b><span
+          style="color: black;"> wartościami będącymi wynikami metody </span></b><span
+        style="color: black;">apply</span><b><span style="color: black;">
+          wywołanej ze wszystkimi elementami tablicy </span></b><span
+        style="color: black;">in</span><b><span style="color: black;">
+          jako argument.</span></b></p>
+    <p><b><span style="color: black;">W klasie testującej utworzyć dwie
+          tablice tej samej długości, wywołać metodę </span></b><span
+        style="color: black;">transform</span><b><span style="color:
+          black;"> przymującą jako argumenty te tablice oraz obiekt </span></b><span
+        style="color: black;">trans</span><b><span style="color: black;">
+        </span></b><span style="color: black;"></span><b><span
+          style="color: black;">na trzy sposoby:</span></b></p>
+    <p><b><span style="color: black;">* </span></b><span style="color:
+        black;">trans</span><b><span style="color: black;"> jest
+          obiektem typu </span></b><span style="color: black;">StrToInt</span><b><span
+          style="color: black;">, <br>
+        </span></b></p>
+    <p><b><span style="color: black;">* </span></b><span style="color:
+        black;">trans</span><b><span style="color: black;"> jest
+          wyrażeniem lambda, w którym metoda </span></b><span
+        style="color: black;">apply</span><b><span style="color: black;">
+          pobiera argument typu </span></b><span style="color: black;">String</span><b><span
+          style="color: black;"> i zwraca jego pierwszy znak jako wynik
+          (typu </span></b><span style="color: black;">Character</span><b><span
+          style="color: black;">),</span></b></p>
+    <p><b><span style="color: black;">* </span></b><span style="color:
+        black;">trans</span><b><span style="color: black;"> jest
+          wyrażeniem lambda, w którym metoda </span></b><span
+        style="color: black;">apply</span><b><span style="color: black;">
+          pobiera tekst (typu </span></b><span style="color: black;">String</span><b><span
+          style="color: black;">) i zwraca jako wynik ten sam tekst,
+          który składa się z samych wielkich liter.</span></b></p>
+    <p><b><span style="color: black;">Poniższy program:</span></b></p>
+    <p><span style="color: black;">import java.util.*;<br>
+      </span></p>
+    <p>@FunctionalInterface<br>
+      <span style="color: black;"><span style="color: black;">interface
+          Transform&lt;T, R&gt; {<br>
+          &nbsp;&nbsp;&nbsp; R apply(T arg);<br>
+          }</span></span></p>
+    <p><br>
+      <span style="color: black;">// tu dopisać klasę StrToInt <br>
+      </span></p>
+    <p><span style="color: black;"><br>
+      </span></p>
+    <p><span style="color: black;"><span style="color: black;"></span>public
+
+
+        class Test {</span></p>
+    <p><span style="color: black;">&nbsp;&nbsp;&nbsp; private static
+        &lt;T, R&gt;<br>
+        &nbsp;&nbsp;&nbsp; void transform(T[] in, R[] out,
+        Transform&lt;T, R&gt; trans) {<br>
+        &nbsp;&nbsp;&nbsp; <br>
+        &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; // ... &nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp; <br>
+        &nbsp;&nbsp;&nbsp; }<br>
+        &nbsp;&nbsp;&nbsp; <br>
+        &nbsp;&nbsp;&nbsp; public static void main(String[] args) {<br>
+        &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <br>
+        &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; String[] sin = {"Alice",
+        "Sue", "Janet", "Bea"};<br>
+        &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+        System.out.println(Arrays.toString(sin) + '\n');<br>
+        &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <br>
+        &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; Integer[] iout = new
+        Integer[sin.length];<br>
+        &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; transform(sin, iout, <span
+          style="color: #408708;">/* ... */</span>);<br>
+        &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+        System.out.println(Arrays.toString(iout));<br>
+        &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <br>
+        &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; Character[] cout = new
+        Character[sin.length];<br>
+        &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; transform(sin, cout, </span><span
+        style="color: black;"><span style="color: black;"><span
+            style="color: #408708;">/* ... */</span></span>);<br>
+        &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+        System.out.println(Arrays.toString(cout));<br>
+        &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <br>
+        &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; String[] sout = new
+        String[sin.length];<br>
+        &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; transform(sin, sout, </span><span
+        style="color: black;"><span style="color: black;"><span
+            style="color: #408708;">/* ... */</span></span>);<br>
+        &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+        System.out.println(Arrays.toString(sout));<br>
+        &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <br>
+        &nbsp;&nbsp;&nbsp; }<br>
+        <br>
+        }<br>
+      </span></p>
+    <p><b><span style="color: black;">powinien wyprowadzić następujące
+          wyniki:</span></b></p>
+    <p><span style="color: black;">[Alice, Sue, Janet, Bea]<br>
+        <br>
+        [5, 3, 5, 3]<br>
+        [A, S, J, B]<br>
+        [ALICE, SUE, JANET, BEA]</span><b><span style="color: black;"><br>
+        </span></b></p>
+    <p></p>
+    <p></p>
+  </body>
+</html>

@@ -1,0 +1,37 @@
+class Test {
+
+	public static void main(String[] args) {
+
+		Product p1 = Product.getInstance(), p2 = Product.getInstance();
+		
+		System.out.println(p1);
+		System.out.println(p2);
+	}
+}
+
+
+class Product {
+	
+	private static Product instance = null;
+	
+	private String name;
+	
+	private Product(String name) {
+		this.name = name;
+	}
+	
+	public static Product getInstance() {
+		if (instance == null) 
+			instance = new Product("ProductName");
+		
+		return instance;
+	}
+
+	/*
+	@Override
+	public String toString() {
+		return name;
+	}
+	*/
+
+}

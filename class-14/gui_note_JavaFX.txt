@@ -1,0 +1,7 @@
+1. Java FX
+
+https://gluonhq.com/products/javafx/
+
+2. Getting Started with JavaFX (with IntelliJ, Eclipse, ...)
+
+https://openjfx.io/openjfx-docs/

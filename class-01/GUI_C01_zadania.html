@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//w3c//dtd html 4.0 transitional//en">
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="Author" content="TLL">
+    <meta name="GENERATOR" content="Mozilla/4.76 [en] (Win98; U)
+      [Netscape]">
+    <title>GUI 01 zaoczne</title>
+  </head>
+  <body> <b><font size="+1">Klasy abstrakcyjne, klasy wewnętrzne anonimowe</font></b><br>
+    <p> </p>
+    <br>
+    <b><u>Zadanie <span style="font-family: &quot;&quot;;">1</span></u></b><span
+      style="color: rgb(0, 0, 0);
+      font-family: ''; font-style: normal; font-variant: normal;      font-weight: normal; letter-spacing: normal; line-height: normal;      orphans: 2; text-indent: 0px; text-transform: none; white-space:      normal; widows: 2; word-spacing: 0px; font-size: medium; display:      inline ! important; float: none;"><br>
+      <br>
+      Zdefiniować klasę abstrakcyjną Muzyk razem z klasami ją dziedziczącymi.
+      Każdy muzyk posiada imię oraz czas wystąpienia. Instrument (na którym gra
+      muzyk) oraz stawka godzinowa są określone za pomocą odpowiednich metod
+      (abstrakcyjnych). Klasa Muzyk posiada standardowy konstruktor oraz tzw.
+      gettery. Klasy dziedziczące po Muzyk (związane z konkretnymi
+      instrumentami) implementują w/w abstrakcyjne metody.&nbsp;</span>Napisać
+    wszystkie klasy w taki sposób, aby następujacy program:<br>
+    <br style="color: rgb(0, 0, 0); font-family: ''; font-style: normal;
+      font-variant: normal; font-weight: normal; letter-spacing: normal;      line-height: normal; orphans: 2; text-indent: 0px; text-transform:      none; white-space: normal; widows: 2; word-spacing: 0px;      font-size: medium;">
+    <pre style="color: rgb(0, 0, 0); font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: normal; orphans: 2; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px;">public class Test {<br><br>    public static void main(String[] args) {<br>    <br>        Muzyk[] muzycy = {new Skrzypek("Aleks", 2),	// Imie, czas wystapienia (w godz.)<br>                       	  new Wiolonczelista("Bartek", 1),<br>                          new Flecista("Czarek", 0.5)};<br>	for (Muzyk m : muzycy)<br>	    System.out.println("Muzyk: " + m.imie() + '\n' +<br>			       "Instrument: " + m.instrument() + '\n' +<br>                               "Czas wystąpienia: " + m.czas() + " godz. " + '\n' +<br>                               "Stawka godzinowa: " + m.stawka() + '\n');<br>	<br>	System.out.println(Muzyk.maxHonorarium(muzycy));	// muzyk otrzymujący najwyższe honorarium za występ<br>	 <br>    }<br>}</pre>
+    <span style="color: rgb(0, 0, 0); font-family: ''; font-style:
+      normal; font-variant: normal; font-weight: normal; letter-spacing:      normal; line-height: normal; orphans: 2; text-indent: 0px;      text-transform: none; white-space: normal; widows: 2;      word-spacing: 0px; font-size: medium; display: inline ! important;      float: none;">wyprowadził
+      na konsolę poniższe wyniki:</span><br style="color: rgb(0, 0, 0); font-family: ''; font-style: normal;
+      font-variant: normal; font-weight: normal; letter-spacing: normal;      line-height: normal; orphans: 2; text-indent: 0px; text-transform:      none; white-space: normal; widows: 2; word-spacing: 0px;      font-size: medium;">
+    <br style="color: rgb(0, 0, 0); font-family: ''; font-style: normal;
+      font-variant: normal; font-weight: normal; letter-spacing: normal;      line-height: normal; orphans: 2; text-indent: 0px; text-transform:      none; white-space: normal; widows: 2; word-spacing: 0px;      font-size: medium;">
+    <span style="font-family: monospace;">Muzyk: Aleks<br>
+      Instrument: skrzypce<br>
+      Czas wystąpienia: 2.0 godz.<br>
+      Stawka godzinowa: 200.0<br>
+      <br>
+      Muzyk: Bartek<br>
+      Instrument: wiolonczela<br>
+      Czas wystąpienia: 1.0 godz. <br>
+      Stawka godzinowa: 250.0<br>
+      <br>
+      Muzyk: Czarek<br>
+      Instrument: flet<br>
+      Czas wystąpienia: 0.5 godz. <br>
+      Stawka godzinowa: 300.0<br>
+      <br>
+      Aleks, czas = 2.0 godz., stawka = 200.0<br>
+      <br>
+    </span><span style="color: rgb(0, 0, 0); font-family: '';
+      font-style: normal; font-variant: normal; font-weight: normal;      letter-spacing: normal; line-height: normal; orphans: 2;      text-indent: 0px; text-transform: none; white-space: normal;      widows: 2; word-spacing: 0px; font-size: medium; display: inline !      important; float: none;"><span
+        style="text-decoration: underline;">Uwaga:</span> Metody instrument() i
+      stawka() muszą być<span class="Apple-converted-space">&nbsp;</span></span><span
+      style="color: rgb(0, 0, 0); font-family: ''; font-style: normal;      font-variant: normal; letter-spacing: normal; line-height: normal;      orphans: 2; text-indent: 0px; text-transform: none; white-space:
+      normal; widows: 2; word-spacing: 0px; font-size: medium;      font-weight: bold;">wywoływane
+      polimorficznie.</span><span style="color: rgb(0, 0, 0); font-family: ''; font-style: normal;
+      font-variant: normal; font-weight: normal; letter-spacing: normal;      line-height: normal; orphans: 2; text-indent: 0px; text-transform:      none; white-space: normal; widows: 2; word-spacing: 0px;      font-size: medium; display: inline ! important; float: none;"></span><br
+      style="color: rgb(0, 0, 0); font-family: ''; font-style: normal;      font-variant: normal; font-weight: normal; letter-spacing: normal;      line-height: normal; orphans: 2; text-indent: 0px; text-transform:
+      none; white-space: normal; widows: 2; word-spacing: 0px;      font-size: medium;">
+    <span style="font-family: ''; font-style: normal; font-variant:
+      normal; letter-spacing: normal; line-height: normal; orphans: 2;      text-indent: 0px; text-transform: none; white-space: normal;      widows: 2; word-spacing: 0px; font-size: medium; color: rgb(249,      17, 52); font-weight: bold;"></span><span
+      style="font-family: '';      font-style: normal; font-variant: normal; letter-spacing: normal;      line-height: normal; orphans: 2; text-indent: 0px; text-transform:
+      none; white-space: normal; widows: 2; word-spacing: 0px;      font-size: medium; color: red; font-weight: bold;"></span><b><u></u></b><span
+      style="color: rgb(0, 0, 0); font-family: ''; font-style: normal;      font-variant: normal; font-weight: normal; letter-spacing: normal;      line-height: normal; orphans: 2; text-indent: 0px; text-transform:
+      none; white-space: normal; widows: 2; word-spacing: 0px;      font-size: medium; display: inline ! important; float: none;"><br>
+      <br>
+    </span><b><u>Zadanie 2</u></b> <span style="font-weight: bold;"><span style="font-family: '';"><br>
+      </span></span>
+    <p>Zdefiniować klasę abstrakcyjną Spiewak reprezentującą śpiewaków. Każdy
+      śpiewak posiada nazwisko oraz numer startowy (np. w konkursie talentów),
+      nadany automatycznie przy tworzeniu obiektu. Klasa Spiewak powinna
+      posiadać m.in. konstruktor Spiewak(String nazwisko) oraz następujące
+      metody:<br>
+      <br>
+      a. abstrakcyjną: abstract String spiewaj(), która docelowo zwraca tekst
+      śpiewany przez śpiewaka w konkursie.<br>
+      b. public String toString() zwracającą informację o śpiewaku.<br>
+      c. statyczną:... najglosniej(...) przyjmującą tablicę obiektów-śpiewaków
+      oraz zwracającą obiekt-śpiewaka, w którego śpiewanym tekście suma kodów
+      największej cyfry (z zakresu '0' - '9') i największej litery (z zakresu
+      'a' - 'z') jest największa (np. w tekście zwróconym przez
+      metodę&nbsp;spiewaj() - "Hi...Hello...2024" największa cyfra to '4',
+      największa litera to 'o', suma kodów '4' + 'o' = 52 + 111 = 163). Można
+      założyć, że kod = 0 jeśli w tekście nie występują cyfry/litery.<br>
+      &nbsp;<br>
+      W&nbsp;metodzie main klasy testującej Main:<br>
+      <br>
+      a. stworzyć kilka (co najmniej 3) obiektów-śpiewaków poprzez użycie <span
+        style="font-weight: bold;">anonimowych klas wewnętrznych</span>
+      rozszerzających klasę Spiewak. Użycie tych klas polega na podawaniu tego,
+      co śpiewak ma śpiewać w konkursie.<br>
+      b. stworzyć tablicę śpiewaków składającą się z obiektów z punktu a.<br>
+      c. testować metodę najglosniej(...) z klasy Spiewak.<b> </b></p>
+    <p>Stworzyć klasę Spiewak w taki sposób, aby następująca metoda main z klasy
+      Main: <br>
+    </p>
+    <pre>public class Main {<br>    public static void main(String[] args)<br>    {<br>    	Spiewak s1 = new Spiewak("Dietrich"){<br>          <font
+color="#33cc00"><span style="font-weight: bold;">/*&lt;-  kod */</span></font><br>        };<br>  <br>        Spiewak s2 = new Spiewak("Piaf"){<br>          <font
+color="#33cc00"><span style="font-weight: bold;">/*&lt;-  kod */</span></font><br>        };<br>  <br>        Spiewak s3 = new Spiewak("Adele"){<br>          <font
+color="#33cc00"><span style="font-weight: bold;">/*&lt;-  kod */</span></font><br>        };<br>  <br>        Spiewak sp[] = {s2, s1, s3};<br>  <br>        for (Spiewak s : sp)<br>            System.out.println(s);<br>        <br>        System.out.println("\n" + Spiewak.najglosniej(sp));<br>    }<br>}</pre>
+    <p>wyprowadziła prawidłową informację dokładnie jak poniżej:</p>
+    <pre>(2) Piaf: a4iBBiii<br>(1) Dietrich: oooooo6oooooo<br>(3) Adele: aAa<br><br>(1) Dietrich: oooooo6oooooo</pre>
+    <p style="color: black;"><span style="text-decoration: underline;">Uwaga:</span>
+      Kod klasy Main&nbsp;może (i musi) być zmieniony tylko w miejscach
+      zaznaczonych na zielono. Inne modyfikacje tego kodu nie są dopuszczalne.</p>
+    <span style="color: rgb(0, 0, 0); font-family: ''; font-style:
+      normal; font-variant: normal; font-weight: normal; letter-spacing:      normal; line-height: normal; orphans: 2; text-indent: 0px;      text-transform: none; white-space: normal; widows: 2;      word-spacing: 0px; font-size: medium; display: inline ! important;      float: none;"></span><span
+      style="font-weight: bold;"></span>
+  </body>
+</html>

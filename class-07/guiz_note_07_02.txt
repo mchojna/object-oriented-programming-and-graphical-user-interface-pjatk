@@ -1,0 +1,130 @@
+class Buffer {
+
+    private int[] arr;
+    
+		// konstruktor
+    public Buffer(int size) {
+		//... 
+	}
+
+	//...
+	
+   public synchronized void put(int n){
+        
+        //...
+        
+        /*
+        (pętla) dopóki bufor jest pełny
+			wait();
+		
+        notify();
+        */
+        
+        //...
+    }
+    
+/*
+		// albo inaczej, za pomocą bloku synchronizowanego
+	public void put(int n){
+        
+        synchronized (this) {
+			//...
+			
+			/*
+			(pętla) dopóki bufor jest pełny
+				wait();
+			
+			notify();
+			*/
+			
+			//...
+		}
+    }
+*/
+    
+    public synchronized int get(){
+           
+		//...
+        
+        /*
+        (pętla) dopóki bufor jest pusty
+			wait();
+	
+        notify();
+        */
+        
+        //...
+    }
+    
+	// ...
+}
+
+class Producer implements Runnable {
+
+    private Buffer buff;
+
+		// konstruktor
+    public Producer(Buffer b) {
+		// ...
+	}
+
+	@Override
+    public void run() {
+        while (true){
+			// ...           
+			// ...buff.put(...)...
+            // usypianie wątku
+            // ...            
+		}
+	}
+	
+	// ...
+}
+
+class Consumer implements Runnable {
+
+    private Buffer buff;
+
+		// konstruktor
+    public Consumer(Buffer b) {
+		// ...
+	}
+
+	@Override
+    public void run() {
+        while (true){
+			// ...           
+			// ... buff.get() ...
+            // usypianie wątku
+            // ...            
+		}
+	}
+	
+	// ...
+}
+
+
+public class Test {
+    public static void main(String[] args) {
+		
+		// ...
+    
+        Buffer buffer = new Buffer(10);
+        Producer producer = new Producer(buffer);
+        Consumer consumer = new Consumer(buffer);
+
+			// utworzenie i uruchomienie wątków producenta i konsumenta
+        // ...
+
+        try {
+			Thread.sleep(15000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		} finally {
+				// przerywanie pracy wątków producenta i konsumenta
+			// ...
+        }
+        
+        // ...
+    }
+}

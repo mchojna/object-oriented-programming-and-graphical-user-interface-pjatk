@@ -1,0 +1,21 @@
+class K { 
+
+	// ...
+
+
+	@Override
+	public boolean equals(Object obj){
+		
+		if (this == obj) return true;
+		
+		if (obj == null || this.getClass() != obj.getClass())
+			return false;
+		
+		K k = (K)obj;
+		
+		// porównywanie składowych obiektów: this, k
+		// ...
+		
+		return ...;
+	}
+}

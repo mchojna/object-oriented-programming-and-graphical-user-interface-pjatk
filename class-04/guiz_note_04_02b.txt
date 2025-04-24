@@ -1,0 +1,110 @@
+Jak działa rozszerzona instrukcja for?
+
+// lista
+List<String> lista = new ArrayList<String>();
+
+// dodawanie elementów do listy
+lista.add(...)
+// ...
+
+	// pętla wydrukująca elementy listy
+for (String e: lista) {
+	System.out.println(e);
+}
+
+/*	// powyższa pętla działa ponieważ ArrayList implementuje interfejs Iterable ...
+	// tak naprawdę:
+Iterator<String> iter = lista.iterator();
+while(iter.hasNext()) {
+	String e = iter.next();
+	System.out.println(e);
+}
+*/
+
+
+---------------------------------------
+Interfejs java.lang.Iterable
+https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Iterable.html
+
+
+interface Iterable<T> {
+
+	Iterator<T> iterator();
+
+	// ...
+}
+
+---------------------------------------
+Interfejs java.util.Iterator<E>
+https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Iterator.html
+
+
+interface Iterator<E> {
+	
+	boolean hasNext();
+	
+	E next();
+	
+	// ...
+
+}
+
+---------------------------------------
+
+import java.util.Iterator;
+
+       // java.lang.Iterable
+class IterNap implements Iterable<Character> {
+	
+	// ...
+
+
+	public Iterator<Character> iterator() {
+
+		// return new WlasnyIterator<Character>(...);
+		return new Iterator<Character>(){
+
+	        	// ...
+
+			public boolean hasNext() {
+			       // ...
+			}
+
+
+			public Character next() {
+					// ...
+			}
+		};
+	}
+}
+
+/*
+class WlasnyIterator implements Iterator<Character> {
+
+			// ...
+
+			public boolean hasNext() {
+			       // ...
+			}
+
+
+			public Character next() {
+					// ...
+			}
+
+}
+*/
+-----------------------------------------------
+
+public class IterNapTest {
+
+    public static void main(String [] args)
+    {
+        IterNap napis = new IterNap("...");
+
+            // iteracja po znakach napisu...
+        for (char z: napis)
+            System.out.print(z + " ");
+   
+    }
+}

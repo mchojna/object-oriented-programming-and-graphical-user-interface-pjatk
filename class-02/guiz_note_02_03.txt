@@ -1,0 +1,111 @@
+interface Obliczenie {
+	double pole();
+	double obwod();
+}
+
+abstract class Figura implements Obliczenie {
+	
+	protected int x, y;
+	
+		// konstruktor
+	public Figura(int x, int y)
+	{
+ 		//...
+	}
+	
+		// metody abstrakcyjne
+	public abstract String fig();
+	public abstract void pozycja(int x, int y);
+	
+	@Override
+	public String toString()
+	{
+		//...
+	}
+		
+	//...
+}
+
+
+class Kolo extends Figura {
+	
+	private int promien;
+	
+		// konstruktor
+	public Kolo(int x, int y, int r)
+	{
+		//...
+	}
+	
+	@Override
+	public String fig() {
+		return "Koło";
+	}
+	
+	@Override
+	public void pozycja(int x, int y)
+	{
+		//...
+	}
+
+	@Override
+	public double pole()
+	{
+		//...
+	}
+	
+	@Override
+	public double obwod()
+	{
+		//...
+	}
+
+	@Override
+	public String toString()
+	{
+		//...
+	}
+	
+	//...
+}
+
+class Prostokat extends Figura{		
+	
+	protected int szer, wys;
+	
+		// konstruktor
+	public Prostokat(int x, int y, int s, int w)
+	{
+		//...
+	}
+
+	@Override
+	public String fig() {
+		return "Prostokat";
+	}
+
+	@Override
+	public void pozycja(int x, int y)
+	{
+		//...
+	}
+
+	@Override
+	public double pole()
+	{
+		//...
+	}
+	
+	@Override
+	public double obwod()
+	{
+		//...
+	}
+
+	@Override
+	public String toString()
+	{
+		return super.toString() + "\nLewy górny - (" + x + ',' + y + ")" + "\nSzerokość: " + szer + ", " + "Wysokość: " + wys + "\n";
+	}
+
+}

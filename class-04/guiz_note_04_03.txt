@@ -1,0 +1,79 @@
+import java.util.*;
+
+enum Kryterium {
+	imie, wiek;
+}
+
+public class Test {
+
+	public static void main(String[] args) {
+
+		List<Osoba> lista = Arrays.asList(
+								new Osoba("Anna", 23), 
+								new Osoba("Maria", 22), 
+								new Osoba("Anna", 20), 
+								new Osoba("Wojciech", 21)
+							);
+
+        Collections.sort(lista, new KomparatorOsob(Kryterium.imie));
+		System.out.println(lista);
+		
+		Collections.sort(lista, new KomparatorOsob(Kryterium.wiek));
+		
+		Collections.sort(lista, Comparator.comparingInt(Osoba::getWiek));
+		//Collections.sort(lista, (o1, o2) ->  o1.getWiek() - o2.getWiek());
+		System.out.println(lista);
+		
+		Collections.sort(lista);
+		System.out.println(lista);
+	}
+}
+
+class Osoba implements Comparable<Osoba>{
+	
+	private String imie;
+	private int wiek;
+	
+	public Osoba(String imie, int wiek) {
+		this.imie = imie;
+		this.wiek = wiek;
+	}
+	
+	public int getWiek() {
+		return this.wiek;
+	}
+	
+	public String getImie() {
+		return this.imie;
+	}
+
+	@Override
+	public int compareTo(Osoba o) {
+		if (this.imie.compareTo(o.imie) != 0)
+			return this.imie.compareTo(o.imie);
+		return wiek - o.wiek;
+	}
+	
+	public String toString() {
+		return "(" + this.imie + ", " + this.wiek + ")";
+	}
+}
+
+
+class KomparatorOsob implements Comparator<Osoba> {
+
+	private Kryterium kr;
+
+	KomparatorOsob(Kryterium kr) {
+		this.kr = kr;
+	}
+	
+	@Override
+	public int compare(Osoba o1, Osoba o2) {
+		
+		return switch (this.kr) {
+			case wiek -> o1.getWiek() - o2.getWiek();
+			case imie -> o1.getImie().compareTo(o2.getImie());
+		};
+	}
+}

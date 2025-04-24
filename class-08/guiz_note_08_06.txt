@@ -1,0 +1,55 @@
+import java.awt.*;
+import javax.swing.*;
+
+public class Przycisk {
+
+    public static void main(String[] args)
+    {
+    	new Przycisk();
+    }
+    
+    public Przycisk()
+    {
+    	SwingUtilities.invokeLater(this::createGUI);
+    }
+    
+    	// który kolor do zmiany
+    private int c = 0;
+    
+    protected void createGUI()
+    {
+    		// utworzenie okna
+        JFrame jf = new JFrame();
+      
+        	// określenie tytułu okna
+        jf.setTitle("Przycisk");
+      		
+      		// obsługa zamknięcia okna JFrame
+        jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        
+        	// określenie położenia okna
+        jf.setLocation(50,50);
+        
+        	// uniemożliwienie zmiany rozmiarów okna
+        jf.setResizable(false);
+
+        Color[] kolory = {Color.red, Color.blue, Color.green};
+       
+        JButton jb = new JButton("Przycisk");
+
+        jb.addActionListener((e) -> {
+        								jb.setBackground(kolory[c%3]);        
+        								//  dla koloru tla JFrame
+        								jf.getContentPane().setBackground(kolory[(c+1)%3]);
+        								c = (c+1)%3;
+        							});
+        
+        jf.setLayout(new FlowLayout());
+        jf.add(jb);
+        
+        jf.pack();
+		
+        	// wyświetlenie okna
+        jf.setVisible(true);   
+    }
+}

@@ -1,0 +1,101 @@
+pulic class FlySpeakTest {
+
+	public static void main(String[] args) {
+	
+		Flyable f[] = {new Bird("sparrow"), new Bird("eagle"), null};
+		f[2] = Flyable.hybryd(f[0], f[1]);
+			
+		Speakable s[] = {
+							new Bird("seagull"),
+							() -> "parrot",
+							new Speakable() {
+								@Override
+								public String speak() {
+									return "aaaaa";
+								}
+							}, () -> "something else"
+		};
+
+		//...
+		
+		System.out.println(Flyable.shortest(f));
+		System.out.println(Speakable.loudest(s));
+	}	
+}
+
+
+interface Flyable {
+	
+	double distance();
+	String drive();
+	
+	static Flyable hybryd(Flyable f1, Flyable f2) {
+		
+		return new Flyable() {
+			
+			@Override
+			public String drive() {
+					return f1.drive() + f2.drive();
+			}
+			
+			@Override
+			public double distance() {		
+				return ...;
+			}
+
+			@Override
+			public  String toString() {
+				return ...;
+			}
+		};
+	}
+
+	 
+	 static Flyable shortest(Flyable[] f) {
+		 // ...
+	 }
+}
+
+interface Speakable {
+	
+	String speak();
+
+	static Speakable loudest(Speakable[] s) {
+		Speakable loudest = s[0];
+		for (Speakable sp: s) {
+			if (sp.speak().length() > loudest.speak().length())
+				loudest = sp;
+		}
+		return loudest;
+	}
+}
+
+class Bird implements Flyable, Speakable{
+	
+	private String name;
+	
+	Bird(String name) {
+		this.name = name;
+	}
+	//...
+
+	@Override
+	public String speak() {
+		return "...";
+	}
+
+	@Override
+	public double distance() {
+		return 500;
+	}
+
+	@Override
+	public String drive() {
+		return "Wings";
+	}
+
+	@Override
+	public  String toString() {
+		return "...";
+	}
+}

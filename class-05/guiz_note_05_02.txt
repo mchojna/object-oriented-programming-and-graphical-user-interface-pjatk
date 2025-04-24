@@ -1,0 +1,51 @@
+import java.util.*;
+
+public class Maps {
+
+    public static void main(String[] args) {
+
+            // mapa = zbiór par (klucz, wartość)
+        Map<String, Integer> telephoneBook = new HashMap<>();
+
+            // para (nazwisko, numer tel)
+        telephoneBook.put("Kowalski", 123);
+        telephoneBook.put("Nowak", 456);
+        telephoneBook.put("Nowak", 789);
+        telephoneBook.put("Kowalska", 111);
+        //telephoneBook.putIfAbsent("Kowalska", 111);
+
+            // pobieranie wartości dla danego klucza
+        System.out.println(telephoneBook.get("Kowalska"));			// 111
+
+            // usuwanie pary dla danego klucza
+        telephoneBook.remove("Kowalska");
+        System.out.println(telephoneBook.get("Kowalska"));			// null
+
+        int number = telephoneBook.get("Nowak");
+        System.out.println(number);									// 789
+
+            // czy mapa zawiera podany klucz?
+        System.out.println(telephoneBook.containsKey("Kowalski"));	// true
+        System.out.println(telephoneBook.containsKey("Kowal"));		// false
+
+            // czy mapa zawiera podaną wartość?
+        System.out.println(telephoneBook.containsValue(456));		// false
+        System.out.println(telephoneBook.containsValue(789));		// true
+        System.out.println(telephoneBook.containsValue(111));		// false
+
+            // zbiór kluczy mapy
+        System.out.println(telephoneBook.keySet());					// [Kowalski, Nowak]
+
+            // zbiór wartości mapy
+        System.out.println(telephoneBook.values());					// [123, 789]
+
+            // drukowanie wartości mapy
+        for (String k : telephoneBook.keySet())
+            System.out.print(telephoneBook.get(k) + " ");			// 123 789
+
+        System.out.println();
+
+            // drukowanie par (klucz, wartość) mapy: Kowalski - 123 Nowak - 789
+        telephoneBook.forEach((key, value) -> System.out.print(key + " - " + value + " "));
+    }
+}

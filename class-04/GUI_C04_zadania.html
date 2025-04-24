@@ -1,0 +1,272 @@
+<!DOCTYPE html PUBLIC "-//w3c//dtd html 4.0 transitional//en">
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="Author" content="TLL">
+    <meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+    <title>GUI 04 zaoczne</title>
+  </head>
+  <body>
+    <b><font size="+1">Comparator, Iterable/Iterator &amp; wstęp do
+        kolekcji</font></b><br>
+    <br>
+    <b><u><br>
+        Zadanie 10</u></b><b><br>
+    </b>
+    <p><b></b><b>Zdefiniować klasę </b>Osoba<b> zawierającą prywatne
+        pola </b>imie<b> </b><b>typu </b>String<b>, </b>wiek<b> typu
+      </b>int<b> wraz z konstruktorem, getterami i metodą </b>toString()<b>.&nbsp;
+
+        Klasa </b>Osoba<b> powinna implementować interfejs funkcyjny </b>Comparable&lt;Osoba&gt;
+
+      <b>czyniąc obiekty-osoby porównywalnymi według następujących
+        kryteriów uporządkowania: wśród osób porównujemy najpierw
+        alfabetycznie imiona, potem wiek (tj. kiedy imiona są równe).</b><b><br>
+      </b></p>
+    <p><b>Następnie zdefiniować klasę </b>KomparatorOsob<b>
+        implementującą interfejs funkcyjny </b>java.util.Comparator&lt;Osoba&gt;<b>.
+        Klasa </b>KomparatorOsob<b> powinna zawierać konstruktor z
+        argumentem typu wylicznikowego (</b>enum<b>) </b>Kryterium<b>
+        określającym kryterium, według którego obiekty-osoby będą
+        uporządkowane.</b><br>
+      <b> </b> </p>
+    <p><span style="font-weight: bold;">Stworzyć wszystkie klasy w taki
+        sposób, aby następujący program:</span><b><br>
+      </b></p>
+    import java.util.*;<br>
+    <br>
+    public class Test {<br>
+    &nbsp;&nbsp;&nbsp; <br>
+    &nbsp;&nbsp; &nbsp;public static void main(String[] args) {<br>
+    &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<br>
+    &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; //
+    tworzenie listy osób<br>
+    &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;List&lt;Osoba&gt; lista =
+    Arrays.asList(<br>
+    &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;new Osoba("Anna", 23), <br>
+    &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;new Osoba("Maria", 22),
+    <br>
+    &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;new Osoba("Anna", 20), <br>
+    &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;new Osoba("Wojciech",
+    21)<br>
+    &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp; &nbsp;);<br>
+    &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;//
+    sortowanie według podanego komparatora (po imię)<br>
+    &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;Collections.sort(lista, new
+    KomparatorOsob(Kryterium.imie));<br>
+    &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;System.out.println(lista);<br>
+    &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<br>
+    &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;//
+    sortowanie według podanego komparatora (po wieku)<br>
+    &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; Collections.sort(lista, new
+    KomparatorOsob(Kryterium.wiek));<br>
+    &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<br>
+    &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;// lub
+    zamiast komparatora "po wieku" napisać wyrażenie lambda w miejscu <span
+      style="color: #408708;">/* ... */</span><br>
+    &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;Collections.sort(lista, <span
+      style="color: #408708;">/* ... */</span>);<br>
+    &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;System.out.println(lista);<br>
+    &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<br>
+    &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;//
+    sortowanie według porządku naturalnego określonego w klasie Osoba<br>
+    &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;Collections.sort(lista);<br>
+    &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;System.out.println(lista);<br>
+    &nbsp;&nbsp; &nbsp;}<br>
+    <br>
+    }
+    <p><span style="font-weight: bold;">wyprowadził na konsolę poniższe
+        wyniki:</span><br>
+    </p>
+    [(Anna, 23), (Anna, 20), (Maria, 22), (Wojciech, 21)]<br>
+    [(Anna, 20), (Wojciech, 21), (Maria, 22), (Anna, 23)]<br>
+    [(Anna, 20), (Anna, 23), (Maria, 22), (Wojciech, 21)]<b> </b>
+    <p><br>
+    </p>
+    <p><b><u>Zadanie 11</u></b><b></b> <br>
+    </p>
+    <p><b>Zaprojektować klasę </b>IterNap<b>, reprezentującą łańcuchy
+        znakowe. Klasa </b>IterNap<b> (implementując interfejs </b>java.lang.Iterable<b>)
+        powinna umożliwiać iterowanie po znakach napisu stosując
+        instrukcję </b>for-each<b>. Implementacja klasy </b>IterNap<b>
+        nie może korzystać z tablic, ani z kolekcji z bibliotek </b>Javy<b>.
+        Stworzyć klasę w taki sposób, aby następujący program</b><br>
+      <br>
+      <span style="font-family: monospace;">public
+        class&nbsp;IterNapTest {</span><br style="font-family:
+        monospace;">
+      <br style="font-family: monospace;">
+      <span style="font-family: monospace;"> &nbsp;&nbsp;&nbsp; public
+        static void main(String [] args) </span><br style="font-family:
+        monospace;">
+      <span style="font-family: monospace;"> &nbsp;&nbsp;&nbsp; {</span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;"> &nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp; IterNap napis = new IterNap("prOgrAmoWanIe
+        ObiEktOwe i Gui");</span><br style="font-family: monospace;">
+      <br style="font-family: monospace;">
+      <span style="font-family: monospace;"> &nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; // iteracja po znakach
+        napisu,</span><br style="font-family: monospace;">
+      <span style="font-family: monospace;"> &nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; // domyślnie zaczynając od
+        pierwszego znaku (o indeksie 0)</span><br style="font-family:
+        monospace;">
+      <span style="font-family: monospace;"> &nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; // i z krokiem iteracji =
+        1</span><br style="font-family: monospace;">
+      <span style="font-family: monospace;"> &nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp; for (char z: napis) </span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;"> &nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; System.out.print(z + " ");</span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;"> &nbsp;&nbsp;&nbsp; </span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;"> &nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp; System.out.println();</span><br
+        style="font-family: monospace;">
+      <br style="font-family: monospace;">
+      <span style="font-family: monospace;"> &nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp; napis.ustawPoczatek(2);&nbsp;&nbsp;&nbsp;
+        &nbsp;// ustawienie początku iteracji (tu: 2-gi znak, o indeksie
+        2)</span><br style="font-family: monospace;">
+      <span style="font-family: monospace;"> &nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp; napis.ustawKrok(3);&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp; &nbsp;// ustawienie kroku iteracji (tu: co
+        3-ci znak)</span><br style="font-family: monospace;">
+      <span style="font-family: monospace;"> &nbsp;&nbsp;&nbsp; </span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;"> &nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; // iteracja po znakach
+        napisu,</span><br style="font-family: monospace;">
+      <span style="font-family: monospace;"> &nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; // od ustalonego znaku, z
+        określonym krokiem</span><br style="font-family: monospace;">
+      <span style="font-family: monospace;"> &nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp; for (char z: napis) </span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;"> &nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; System.out.print(z + " ");</span></p>
+    <p><span style="font-family: monospace;"></span></p>
+    <pre style="color: rgb(0, 0, 0); font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: normal; orphans: 2; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px;"><span style="color: rgb(0, 153, 0);">	/*&lt;-  co tu trzeba napisać w wywołaniu metody forEach z argumentem będącym lambda-wyrażeniem <br>	      w celu wyświetlenia znaków napisu (w postaci małych liter) zgodnie z iteracją<br><br>	napis.forEach(...)		<br>	*/</span></pre>
+    <p><span style="font-family: monospace;"> &nbsp;&nbsp;&nbsp; }</span><br
+        style="font-family: monospace;">
+      <span style="font-family: monospace;"> }</span><br>
+      <br>
+      <b>wyprowadził na konsolę poniższe wyniki:<br>
+      </b><br>
+      <span style="font-family: monospace;">p r O g r A m o W a n I
+        e&nbsp;&nbsp; O b i E k t O w e&nbsp;&nbsp; i&nbsp;&nbsp; G u i
+        <br>
+        O A W I O E O&nbsp;&nbsp; G</span></p>
+    <p><span style="font-family: monospace;">o&nbsp;a w i o e o &nbsp; g</span></p>
+    <p><br>
+      <b><u>Zadanie 12</u></b> <br>
+    </p>
+    <p><b>Każdy student posiada nazwisko, imię, rok urodzenia oraz
+        unikalny numer. </b><b><b>Każda grupa posiada swoją nazwę oraz
+          maksymalną liczbę studentów. </b>Początkowo student nie jest
+        przypisany do żadnej grupy. Studenta można przypisać do podanej
+        (tylko jednej!) grupy. Studenta można usunąć z grupy, jeżeli
+        wcześniej był przypisany do niej.</b></p>
+    <p><b><b>Wykorzystując klasy kolekcyjne (listy) napisać program
+          przypisując studentów do grup oraz zmieniając ich grupy.</b></b><b><b>
+          Stworzyć klasy w taki sposób, aby następujący program</b></b></p>
+    <p><b><br>
+      </b>public class StudentGroup {<br>
+      <br>
+      &nbsp;&nbsp;&nbsp; public static void main(String[] args) {<br>
+      <br>
+      &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; Student s1 = new
+      Student("Kowalski", "Jan", 2000);<br>
+      &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; Student s2 = new
+      Student("Nowacka", "Janina", 2005);<br>
+      &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; Student s3 = new
+      Student("Omega", "Alfa", 2003);<br>
+      <br>
+      &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; Group gr1 = new
+      Group("Java", 15);<br>
+      &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; Group gr2 = new
+      Group("Smalltalk", 2);<br>
+      <br>
+      &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; try {<br>
+      &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+      gr1.assign(s1);<br>
+      &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+      gr1.assign(s3);<br>
+      &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+      gr1.assign(s2);<br>
+      <br>
+      &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+      System.out.println(gr1);<br>
+      &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; for
+      (Student s : gr1.getStudents()) System.out.println(s);<br>
+      <br>
+      &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+      gr2.assign(s1);<br>
+      &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; } catch (Exception e) {<br>
+      &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+      System.out.println(e.getMessage());<br>
+      &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; }<br>
+      <br>
+      &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; try {<br>
+      &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; for
+      (Student s : gr1.getStudents()) gr1.remove(s);<br>
+      &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+      gr2.assign(s1);<br>
+      &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+      gr2.assign(s2);<br>
+      <br>
+      &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+      System.out.println(gr2);<br>
+      &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; for
+      (Student s : gr2.getStudents()) System.out.println(s);<br>
+      <br>
+      &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+      gr2.assign(s3);<br>
+      &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; } catch (Exception exc) {<br>
+      &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+      System.out.println(exc.getMessage());<br>
+      &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; }<br>
+      <br>
+      &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; try {<br>
+      &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+      gr2.remove(s3);<br>
+      &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; } catch (Exception exc) {<br>
+      &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+      System.out.println(exc.getMessage());<br>
+      &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; }<br>
+      &nbsp;&nbsp;&nbsp; }<br>
+      }<br>
+      <br>
+      <b><b>wyprowadził na konsolę poniższe wyniki:</b></b></p>
+    <p><b></b>Grupa Java<br>
+      (1) Jan Kowalski, 2000<br>
+      (3) Alfa Omega, 2003<br>
+      (2) Janina Nowacka, 2005<br>
+      Nie ma możliwości przypisania studenta do grupy (Grupa Smalltalk)
+      - już jest przypisany do grupy (Grupa Java)<br>
+      Grupa Smalltalk<br>
+      (1) Jan Kowalski, 2000<br>
+      (2) Janina Nowacka, 2005<br>
+      Nie ma możliwości przypisania studenta do grupy (Grupa Smalltalk)
+      - brak miejsca<br>
+      Nie ma możliwości usunięcia studenta z grupy (Grupa Smalltalk) -
+      nie należy do tej grupy<br>
+      <b><br>
+      </b></p>
+    <p><span style="font-family: monospace;"><br>
+      </span></p>
+  </body>
+</html>

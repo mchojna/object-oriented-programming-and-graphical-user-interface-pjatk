@@ -1,0 +1,53 @@
+import java.util.*;
+
+class Letters {
+    
+	private List<Thread> lista;
+
+    public Letters(String string) {
+        
+		lista = new ArrayList<>();
+
+        for (int i = 0; i < string.length(); i++) {
+            
+			char c = string.charAt(i); 	
+            
+			Runnable r = () -> {
+                
+				while (true){
+                    System.out.print(c);	
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                        return;
+                    }
+                }
+            };
+           
+            lista.add(new Thread(r, "Thread " + c));
+        }
+    }
+
+    public List<Thread> getThreads(){
+        return lista;
+    }
+
+}
+
+public class Main {
+
+    public static void main(String[] args) throws InterruptedException {
+        Letters letters = new Letters("ABCD");
+
+        for (Thread t : letters.getThreads()) System.out.println(t.getName());
+
+        letters.getThreads().forEach(t -> t.start());
+
+        Thread.sleep(5000);
+
+        letters.getThreads().forEach(t -> t.interrupt());
+
+        System.out.println("\nProgram skończył działanie");
+    }
+	
+}

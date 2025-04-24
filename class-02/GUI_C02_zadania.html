@@ -1,0 +1,209 @@
+<!DOCTYPE html PUBLIC "-//w3c//dtd html 4.0 transitional//en">
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="Author" content="TLL">
+    <meta name="GENERATOR" content="Mozilla/4.76 [en] (Win98; U)
+      [Netscape]">
+    <title>GUI 02 zaoczne</title>
+  </head>
+  <body>
+    <b><font size="+1">Interfejsy</font></b><br>
+    <span style="font-weight: bold;"></span><b></b><br>
+    <p> <b><u>Zadanie 4</u></b> </p>
+    <p><b><span style="color: black;">Zdefiniować interfejsy </span></b><span
+        style="color: black;">Flyable</span><b><span style="color:
+          black;">, </span></b><span style="color: black;">Speakable</span><b><span
+          style="color: black;">, następnie klasy </span></b><span
+        style="color: black;">Bird</span><b><span style="color: black;">,
+        </span></b><span style="color: black;">Plane</span><b><span
+          style="color: black;">, </span></b><span style="color:
+        black;">UFO</span><b><span style="color: black;"> implementujące
+        </span></b><span style="color: black;"><b>obydwa interfejsy oraz
+          klasę</b> Virus <b>implementującą interfejs</b> Flyable<b>.</b>
+      </span><b><span style="color: black;"><br>
+        </span></b></p>
+    <p><b><span style="color: black;">Interfejs </span></b><span
+        style="color: black;">Flyable</span><b><span style="color:
+          black;"> powinien posiadać m. in. metody: </span></b><span
+        style="color: black;"><br>
+      </span></p>
+    <p><span style="color: black;">&nbsp;&nbsp;&nbsp; String drive()</span><b><span
+          style="color: black;"> </span></b><b><span style="color:
+          black;">zwracającą typ/nazwę napędu,</span></b></p>
+    <p><b><span style="color: black;"></span></b><span style="color:
+        black;"> &nbsp;&nbsp;&nbsp; double distance()</span><b><span
+          style="color: black;"> zwracającą maksymalną odległość jaką
+          może pokonać obiekt latający,</span></b></p>
+    <p><span style="color: black;">&nbsp;&nbsp;&nbsp; static Flyable
+        hybrid(Flyable ..., Flyable ...)</span><b><span style="color:
+          black;"> zwracającą obiekt będący "połączeniem" 2 dwóch
+          obiektów latających w sposób następujący: nazwa/typ nowego
+          obiektu jest konkatenacją nazw/typów wejściowych obiektów,
+          maksymalna odległość jaką może pokonać nowy obiekt jest
+          maksymalną wartością z odległości wejściowych obiektów.&nbsp;</span></b>
+    </p>
+    <p><b><span style="color: black;"> </span></b></p>
+    <p><b><span style="color: black;">Interfejs </span></b><span
+        style="color: black;">Speakable</span><b><span style="color:
+          black;"> powinien posiadać jedną abstrakcyjną metodę </span></b><span
+        style="color: black;">String speak(</span><span style="color:
+        black;">)</span><span style="color: black;"></span><b><span
+          style="color: black;"> zwracającą odgłos wydany przez obiekt.
+          <br>
+        </span></b></p>
+    <p><b><span style="color: black;">Zdefiniować kilka obiektów typu </span></b><span
+        style="color: black;">Flyable</span><b><span style="color:
+          black;"> (również za pomocą metody statycznej </span></b><span
+        style="color: black;">hybrid(...)</span><b><span style="color:
+          black;">) i umieścić je w tablicy elementów typu </span></b><span
+        style="color: black;">Flyable</span><b><span style="color:
+          black;"></span></b><span style="color: black;"></span><b><span
+          style="color: black;">. Zdefiniować kilka obiektów typu </span></b><span
+        style="color: black;">Speakable</span><b><span style="color:
+          black;"> (za pomocą konstruktorów odp. klas, klas anonimowych
+          oraz wyrażeń lambda) i umieścić je w tablicy elementów typu </span></b><span
+        style="color: black;">Speakable</span><b><span style="color:
+          black;">. Napisać 2 metody statyczne przyjmujące w/w tablicę
+          oraz zwracające odpowiednio: obiekt pokonujący najkrótszą
+          odległość, obiekt najgłośniejszy (głosność = liczba znaków w
+          odgłosie). <br>
+        </span></b></p>
+    <p><b><span style="color: black;">Pokazać działanie wszystkich
+          interfejsów, klas, metod.</span><u><br>
+        </u></b></p>
+    <p><b><u><br>
+        </u></b></p>
+    <p><b><u>Zadanie 5</u></b> </p>
+    <p><b>Przygotować </b><b>klasę abstrakcyjną </b>Figura<i> </i><b>oraz
+
+        dziedziczące ją klasy</b> Kolo<b>, </b>Prostokat. </p>
+    <p><b>Klasa abstrakcyjna </b>Figura <b>zawiera min. dwa pola typu
+      </b>int<b> określające współrzędnych położenia figury</b><b>;
+        konstruktor; metodę abstrakcyjną zwracającą nazwę figury; metodę
+        abstrakcyjną </b>void pozycja(..., ...)<b> wyświetlającą na
+        konsolę informację, czy punkt o współrzędnych (typu </b>int<b>,
+        przekazanych do metody jako argumenty) znajduje się wewnątrz
+        figury oraz przedefiniowaną metodę </b>public String toString()<b>
+        zwracającą informację o figurze.</b></p>
+    <p><b>Klasa</b> Kolo <b>zawiera dodatkowe pole typu </b>int<b>
+        określające promień; konstruktor; implementację metody
+        abstrakcyjnej oraz przedefiniowaną metodę </b>toString()<b>.</b></p>
+    <p><b>Klasa </b>Prostokat<b> zawiera dodatkowe pola typu </b>int<b>
+        określające szerokość, wysokość prostokąta; konstruktor tworzący
+        prostokąt o bokach równoległych do osi układu współrzędnych;
+        implementację metody abstrakcyjnej oraz <b>przedefiniowaną
+          metodę<b> </b></b></b>toString()<b><b><b>.
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+          </b><span style="font-weight: bold;"></span> </b></b></p>
+    <p><b></b></p>
+    <span style="font-weight: bold;">Stworzyć w/w klasy w taki sposób,
+      aby następujący program</span><br>
+    <br>
+    public class TestFigur {<br>
+    &nbsp;&nbsp;&nbsp; <br>
+    &nbsp;&nbsp;&nbsp; public static void main(String[] args)<br>
+    &nbsp;&nbsp;&nbsp; {&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <br>
+    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; Figura fig[] = new Figura[2];<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; fig[0] = new Kolo(10, 10,
+    5);&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; // położenie koła = srodek =
+    (10,10), promień = 5<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; fig[1] = new
+    Prostokat(20, 20, 15, 10);&nbsp;&nbsp;&nbsp; // położenie prostokąta
+    = lewy górny wierzchołek = (20,20), szerokość = 15, wysokość = 10<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    // polimorficzne wywołanie metody toString() z klas Kolo/Prostokat,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    // a nie z klasy Figura<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for (Figura f :
+    fig)&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;
+    // pętla for-each<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    System.out.println(f);&nbsp;&nbsp;&nbsp; //
+    System.out.println(f.toString());<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; fig[0].pozycja(12,
+    12);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+    <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; fig[1].pozycja(25, 30);<br>
+    &nbsp;&nbsp;&nbsp; }<br>
+    }<br>
+    <p><span style="font-weight: bold;">wyprowadził na konsolę poniższe
+        wyniki:</span> </p>
+    Koło<br>
+    Środek - (10,10)<br>
+    Promień - 5<br>
+    <br>
+    Prostokąt<br>
+    Lewy górny - (20,20)<br>
+    Szerokość: 15, Wysokość: 10<br>
+    <br>
+    Punkt (12,12) znajduje się wewnątrz koła<br>
+    <br>
+    Punkt (25,30) znajduje się na zewnątrz prostokąta<br>
+    <br>
+    <br>
+    <b><u>Zadanie 6</u></b><span style="font-weight: bold;"></span><br>
+    <b>(Rozbudować zadanie 5)</b><b><br>
+    </b>
+    <p><b> a. Zdefiniować interfejs </b>Obliczenie<b> zawierający
+        metody zwracające</b><b> pole i obwód figury. </b><b>Zaimplementować
+        interfejs </b>Obliczenie <b>w klasach </b>Figura<i>, </i>Kolo<b>,
+      </b>Prostokat<b> oraz testować wszystkie metody.</b></p>
+    <b> b. </b><b>Zdefiniować interfejs </b>Rysowanie<b> zawierający
+      metodę </b>void rysuj()<b> rysującą figurę na konsoli. </b><b>Stworzyć
+      klasę </b>Prostokat2<b> rozszerzającą klasę </b>Prostokat<b>
+      oraz implementującą interfejs </b>Rysowanie <b>w taki sposób,
+      aby następujący fragment kodu <br>
+      <br>
+    </b>Figura p2 = new Prostokat2(20, 20, 10, 5,
+    '*');&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; // prostokąt rozmiaru 10 x 5
+    będzie "rysowany" na konsoli za pomocą znaku '*'<br>
+    ((Prostokat2)p2).rysuj();&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // <b>Wyjaśnić
+      dlaczego p2.rysuj() nie działa?</b><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b><br>
+      wyprowadził na konsolę poniższe wyniki:<br>
+      <br>
+      **********<br>
+      **********<br>
+      **********<br>
+      **********<br>
+      **********<br>
+      <br>
+    </b><b>c. Zdefiniować interfejs </b>Transformacja<b> zawierający
+      metody </b>void przesunDo(int x, int y)<b> oraz </b>void
+    powrot()<b>. </b><b>Stworzyć klasę </b>Kolo2<b> rozszerzającą
+      klasę </b>Kolo<b> oraz implementującą interfejs </b>Transformacja
+    <b>w taki sposób, aby następujący fragment kodu </b><br>
+    <br>
+    Kolo2 k2 = new Kolo2(15, 20, 5);<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>
+    k2.przesunDo(50, 40);&nbsp;&nbsp;&nbsp; // przesunięcie środka koła
+    do punktu (50, 40) <br>
+    System.out.println(k2);<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>
+    k2.powrot();&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; // powrót do poprzedniej
+    pozycji (bezpośrednio przed przesunięciem) środka koła<br>
+    System.out.println(k2);<br>
+    <b><br>
+      wyprowadził na konsolę poniższe wyniki:</b><br>
+    <br>
+    Koło<br>
+    Środek - (50,40)<br>
+    Promień - 5<br>
+    <br>
+    Koło<br>
+    Środek - (15,20)<br>
+    Promień - 5
+    <p></p>
+    <p></p>
+  </body>
+</html>

@@ -1,0 +1,52 @@
+import java.awt.*;
+import javax.swing.*;
+
+public class ElemComp {
+
+    public static void main(String[] args)
+    {
+        new ElemComp(args);
+    }
+    
+    public ElemComp(String[] args)
+    {
+        SwingUtilities.invokeLater(() -> createGUI(args));
+    }
+    
+    protected void createGUI(String[] args)
+    {
+            // utworzenie okna
+        JFrame jf = new JFrame();
+
+            // określenie tytułu okna
+        jf.setTitle("Edytor");
+
+            // obsługa zamknięcia okna JFrame
+        jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+            // określenie położenia okna
+        jf.setLocation(50,50);
+
+            // uniemożliwienie zmiany rozmiarów okna
+        jf.setResizable(false);
+
+        JTextArea jta= new JTextArea(20,30);
+
+        Color foreColor = JColorChooser.showDialog(null, "Wybierz kolor", Color.BLACK);
+
+        jta.setBackground(Color.BLUE);
+        jta.setForeground(foreColor);
+
+        if (args.length >=3)
+            jta.setFont(Font.decode(args[0] + "-" + args[1] + "-" + args[2]));
+
+        JScrollPane jsp = new JScrollPane(jta);
+        jf.setContentPane(jsp);
+
+        jf.pack();
+        jf.setSize(800, 800);
+
+            // wyświetlenie okna
+        jf.setVisible(true);   
+    }
+}

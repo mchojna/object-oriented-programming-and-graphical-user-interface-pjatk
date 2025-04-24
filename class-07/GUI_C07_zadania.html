@@ -1,0 +1,254 @@
+<!DOCTYPE html PUBLIC "-//w3c//dtd html 4.0 transitional//en">
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="Author" content="TLL">
+    <meta name="GENERATOR" content="Mozilla/4.76 [en] (Win98; U)
+      [Netscape]">
+    <title>GUI 07 zaoczne</title>
+  </head>
+  <body>
+    <font style="font-weight: bold;" size="+1">Wstęp do programowania
+      współbieżnego</font><br style="font-weight: bold;">
+    <u style="font-weight: bold;"> </u><b><u></u></b><br>
+    <p> <b><u>Zadanie 17</u></b> </p>
+    <b>Zbudować klasę </b>Letters<b>, która posłuży do równoleglego
+      uruchamiania kodów, wypisujących co sekundę </b><b><b>(</b></b>w
+    pętli nieskończonej<b><b>) l</b>itery podane w napisie przekazanym
+      do konstruktora klasy.<br>
+      Po stworzeniu obiektu klasy </b>Letters<b> w metodzie </b>main(...)<b>
+      klasy </b>Main<b> wystartować wszystkie wątki, w których mają być
+      wypisywane podane litery.<br>
+      Po wstrzymaniu działania metody </b>main(...)<b> na 5 sekund -
+      zakończyć działanie wszystkich kodów, wypisujących litery.<br>
+    </b>
+    <p><b>Uruchomienie poniższego programu:</b></p>
+    &nbsp;&nbsp;&nbsp; public class Main {<br>
+    <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public static void main(String[]
+    args) throws InterruptedException {<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Letters letters = new
+    Letters("ABCD");<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for (Thread t :
+    letters.getThreads()) System.out.println(t.getName());<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #009900;">&nbsp;
+
+      /*&lt;- tu uruchomić <br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+      wszystkie kody w wątkach <br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; */</span><br>
+    <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Thread.sleep(5000);<br>
+    <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style="color:
+      #009900;">/*&lt;- tu trzeba zapisać<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      fragment, który kończy działanie kodów, wypisujących litery <br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; */</span><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    System.out.println("\nProgram skończył działanie");<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>
+    <br>
+    &nbsp;&nbsp;&nbsp; }<br>
+    <p>powinno (w tej postaci) wypisać:</p>
+    Thread A<br>
+    Thread B<br>
+    Thread C<br>
+    Thread D<br>
+    <br>
+    (po 5 sekundach)<br>
+    Program skończył działanie<br>
+    <br>
+    Natomiast po uzupełnieniu kodu w miejscah wskazanych przez <span
+      style="color: #009900;">/*&lt;-&nbsp;&nbsp; */</span> - coś w
+    rodzaju:<br>
+    <br>
+    Thread A<br>
+    Thread B<br>
+    Thread C<br>
+    Thread D<br>
+    ACDBDBACACDBCBDA<br>
+    Program skończył działanie.<br>
+    <br>
+    <b>Uwaga 1: modyfikacje klasy </b>Main<b> są dopuszczalne tylko w
+      miejscach wskazanych przez </b><span style="color: #009900;">/*&lt;-
+      */</span><b><br>
+      Uwaga 2: nie wolno stosować </b>System.exit<b><br>
+      Uwaga 3: warto przy definiowaniu metody </b>run()<b> zastosować
+      lambda-wyrażenie<br>
+      Uwaga 4. W tym zadania można nie stosować (a nawet nie należy
+      stosować) </b>ExecutorService<u><br>
+    </u> <b><u><br>
+      </u></b>
+    <p><b><u>Zadanie 18</u><br>
+      </b></p>
+    <span style="font-weight: bold;">Zbudować klasę </span><i><span
+        style="font-style: italic;">StringTask</span></i><span
+      style="font-weight: bold;">, symulującą długotrwałe obliczenia, tu
+      polegające na konkatenacji napisów (od końca).</span><br
+      style="font-weight: bold;">
+    <span style="font-weight: bold;">Konstruktor klasy otrzymuje jako
+      argument napis do powielenia oraz liczbę&nbsp;oznaczającą ile razy
+      ten napis ma być powielony (np. dla </span><span
+      style="font-style: italic;">"abc"</span><span style="font-weight:
+      bold;"> i </span><span style="font-style: italic;">3</span><span
+      style="font-weight: bold;"> wynik to<span style="font-style:
+        italic;"> </span></span><span style="font-style: italic;">"cbacbacba"</span><span
+      style="font-weight: bold;">)</span><br style="font-weight: bold;">
+    <span style="font-weight: bold;">Klasa winna implementować interfejs
+    </span><span style="font-style: italic;">Runnable</span><span
+      style="font-weight: bold;">, a w jej metodzie </span><span
+      style="font-style: italic;">run()</span><span style="font-weight:
+      bold;"> wykonywane jest powielenie napisu, przy czym to powielenie
+      i inne operacje na napisach mają się odbywać za pomocą operatora </span><span
+      style="font-style: italic;">'+'</span><span style="font-weight:
+      bold;"> stosowanego wobec zmiennych typów </span><span
+      style="font-style: italic;">String</span><span style="font-weight:
+      bold;"> /</span><span style="font-style: italic;"> char</span><span
+      style="font-weight: bold;"> (to właśnie długotrwała operacja). </span><span
+      style="color: rgb(204, 0, 0); font-weight: bold;">Użycie </span><span
+      style="color: rgb(204, 0, 0); font-style: italic;">'+'</span><span
+      style="color: rgb(204, 0, 0); font-weight: bold;"> jest warunkiem
+      obowiązkowym</span><span style="font-weight: bold;">.</span><br
+      style="font-weight: bold;">
+    <br>
+    <span style="font-weight: bold;">Obiekt klasy</span><span
+      style="font-style: italic;"> StringTas</span><span
+      style="font-weight: bold;">k traktujemy jako zadanie, które może
+      się wykonywać równolegle z innymi.</span><br style="font-weight:
+      bold;">
+    <span style="font-weight: bold;">Możliwe stany zadania to (mogą być
+      wartości enumeracji - </span><span style="font-style: italic;">enum</span><span
+      style="font-weight: bold;">):</span><br style="font-weight: bold;">
+    <ul style="font-weight: bold;">
+      <li><span style="font-weight: normal; font-style: italic;">CREATED</span>
+        &nbsp;- zadanie utworzone, ale nie zaczęło się jeszcze
+        wykonywać,</li>
+      <li><span style="font-style: italic; font-weight: normal;">RUNNING</span>
+        - zadanie się wykonuje w odrębnym wątku,</li>
+      <li><span style="font-style: italic; font-weight: normal;">ABORTED</span>
+        - wykonanie zadania zostało przerwane,</li>
+      <li><span style="font-style: italic; font-weight: normal;">READY</span>
+        - zadanie zakończyło się pomyślnie i są gotowe wyniki.</li>
+    </ul>
+    <span style="font-weight: bold;">W klasie </span><span
+      style="font-style: italic;">StringTask</span><span
+      style="font-weight: bold;"> zdefiniować m. in. metody:</span><br
+      style="font-weight: bold;">
+    <ul style="font-weight: bold;">
+      <li>&nbsp; <span style="font-style: italic; font-weight: normal;">public
+
+          String getResult()</span> &nbsp;- zwracającą wynik
+        konkatenacji</li>
+      <li>&nbsp; <span style="font-style: italic; font-weight: normal;">public
+
+          TaskState getState()</span> &nbsp;- zwracającą stan zadania</li>
+      <li>&nbsp; <span style="font-style: italic; font-weight: normal;">public
+
+          void start()</span> - uruchamiającą zadanie w odrębnym watku</li>
+      <li>&nbsp; <span style="font-style: italic; font-weight: normal;">public
+
+          void abort()</span> - przerywającą wykonanie kodu zadania i
+        działanie wątku</li>
+      <li>&nbsp; <span style="font-style: italic; font-weight: normal;">public
+
+          boolean isDone()</span> &nbsp;- zwracającą <span
+          style="font-style: italic; font-weight: normal;">true</span>,
+        jeśli wykonanie zadania się zakończyło normalnie lub przez
+        przerwanie, <span style="font-style: italic; font-weight:
+          normal;">false</span> w przeciwnym razie</li>
+    </ul>
+    <span style="font-weight: bold;">Poniższy kod program</span><br>
+    <pre>public class Main {<br><br>  public static void main(String[] args) throws InterruptedException {<br>    StringTask task = new StringTask("ABC", 100000);<br>    System.out.println("Task " + task.getState());<br>    task.start();<br>    if (args.length &gt; 0 &amp;&amp; args[0].equals("abort")) { <br>    <span style="color: rgb(0, 153, 0);">/*&lt;- tu zapisać kod  przerywający działanie tasku po 1 sekundzie <br>         i uruchomić ten kod w odrębnym wątku (czyli w innym wątku niż main)<br>    */</span><br>    }<br>    while (!task.isDone()) {<br>      Thread.sleep(500);<br>      switch(task.getState()) {<br>        case RUNNING: System.out.print("R."); break;<br>        case ABORTED: System.out.println(" ... aborted."); break;<br>        case READY: System.out.println(" ... ready."); break;<br>        default: System.out.println("uknown state");<br>      }<br>      <br>    }<br>    System.out.println("Task " + task.getState());<br>    System.out.println(task.getResult().length());<br>    System.out.println(task.getResult().substring(0,task.getTxt().length()));<br>  }<br><br>}</pre>
+    <br>
+    <p> <span style="font-weight: bold;">uruchomiony bez argumentu </span><span
+        style="font-weight: bold;">powinien </span><span
+        style="font-weight: bold;">wyprowadzić coś w rodzaju:</span><span
+        style="font-weight: bold;"></span></p>
+    Task CREATED<span style="font-weight: bold;"></span><br>
+    R.R.R.R.R. ... ready.args<br>
+    Task READY<br>
+    300000<br>
+    CBA<br>
+    <p> <span style="font-weight: bold;">a uruchomiony z argumentem </span><span
+        style="font-style: italic;">"abort"</span><span
+        style="font-weight: bold;"> może wyprowadzić:</span></p>
+    Task CREATED<br>
+    R. ... aborted.<br>
+    Task ABORTED<br>
+    95736<br>
+    CBA<br>
+    <br>
+    <br>
+    <span style="font-weight: bold;">Uwaga 1. Plik </span><span
+      style="font-style: italic;">Main.java</span><span
+      style="font-weight: bold;"> może być modyfikowany tylko w miejscu
+      oznaczonym </span><span style="font-style: italic; color: rgb(0,
+      153, 0);">/*&lt;- */</span><br style="font-weight: bold;">
+    <span style="font-weight: bold;">Uwaga 2. Nie wolno używać metody </span><span
+      style="font-style: italic;">System.exit(...)</span><span
+      style="font-weight: bold;">.<br>
+    </span>
+    <p><span style="font-weight: bold;"> Uwaga 3: warto&nbsp;zastosować
+        lambda-wyrażenie (tam gdzie możliwe).</span></p>
+    <p><span style="font-weight: bold;"><br>
+      </span></p>
+    <b><span style="color: red;"><u>[Zadanie 19</u> (Synchronizacja i
+        kordynacja wątków)]</span><br>
+    </b>
+    <p><b>Klasyczny problem współbieżności </b>Producent - Konsument<b>.</b></p>
+    <b> Producent produkuje produkty i umieszcza je w buforze, a
+      konsument pobiera je stamtąd </b>w kolejności ich umieszczania<b>.<br>
+      <br>
+      <u>Szczegóły:</u><br>
+      <br>
+      Produkty są liczbami całkowitymi wygenerowanymi/wyprodukowanymi
+      losowo przez producenta.<br>
+      <br>
+      Bufor jest obiektem </b>własnej<b> klasy </b>Buffer<b>
+      zawierającej między innymi metody </b>int get()<b> - pobierającą
+      liczbę z bufora oraz </b>put(int n)<b> - wstawiającą liczbę do
+      bufora. Elementy bufora są przechowywane </b>w tablicy o
+    ograniczonej pojemności<b>, podanej w momencie jego utworzenia (w
+      szczególności, bufor może mieć pojemność większą niż 1). W danej
+      chwili dostęp do bufora może mieć albo producent, albo konsument
+      (tj. </b>synchronizacja wątków<b>), stąd metody </b>put<b>, </b>get<b>
+      powinny być synchronizowane.<br>
+      <br>
+      Producent jest obiektem </b>własnej<b> klasy </b>Producer<b>
+      (implementującej </b>Runnable<b>). Konstruktor </b>Producer(Buffer
+    b)<b> tworzy nowy obiekt - producent, którego zadaniem jest
+      produkowanie i umieszczanie produktu w buforze </b>b<b>.
+      Przedefiniowana metoda </b>run()<b> zawiera nieskońzoną pętlę: 1.
+      Generuje losowo jedną liczbę całkowitą; 2. Umieszcza ją w buforze
+      za pomocą metody </b>put<b>, metoda </b>put<b> powinna czekać na
+      zwolnienie miejsca w przypadku pełngo bufora (tj. </b>koordynacja
+    wątków<b>); 3. Zasypia na losowy wybrany czas z przedziału od 0 do 2
+      s. <br>
+      <br>
+      Konsument jest obiektem </b>własnej<b> klasy </b>Consumer<b>
+      (implementującej </b>Runnable<b>). Konstruktor </b>Consumer(Buffer
+    b)<b> tworzy nowy obiekt - konsument, którego zadaniem jest
+      pobieranie produktu z bufora </b>b<b> i jego konsumowanie.
+      Przedefiniowana metoda </b>run()<b> zawiera nieskończoną pętlę:
+      1. Pobiera jedną liczbę z bufora za pomocą metody int </b>get<b>,
+      metoda </b>get<b> powinna czekać na nową liczbę w przypadku
+      pustego bufora (tj. </b>koordynacja wątków<b>). 2. Konsumuje
+      liczbę, czyli wyprowadza ją na konsolę; 3. Zasypia na losowy
+      wybrany czas z przedziału od 0 do 2 s.<br>
+      <br>
+      Zrealizować </b>koordynację wątków<b> za pomocą schematu </b>wait/notify.<b><br>
+      <br>
+      <u>Testowanie:</u><br>
+      1. Utworzyć obiekt klasy </b>Buffer<b><br>
+      2. Utworzyć obiekty klas </b>Producer<b>, </b>Consumer<b> oraz
+      uruchomić wątki symulujące działanie producenta oraz konsumenta na
+      danym buforze.<br>
+      3. Program zakończy działanie po określonym czasie 15s.<br>
+      <br>
+      W trakcie działania, program powinien wyprowadzać na zewnątrz jak
+      najwięcej informacji, aby można było śledzić jego przebieg.</b>
+    <p> </p>
+  </body>
+</html>

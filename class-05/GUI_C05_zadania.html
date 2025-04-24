@@ -1,0 +1,220 @@
+<!DOCTYPE html PUBLIC "-//w3c//dtd html 4.0 transitional//en">
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="Author" content="TLL">
+    <meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+    <title>GUI 05 zaoczne</title>
+  </head>
+  <body>
+    <b><font size="+1">Kolekcje</font></b><br>
+    <br>
+    <p><b><u>Zadanie 13</u></b><b><br>
+      </b> </p>
+    <b></b>
+    <p><b>Zdefiniować klasę </b>Osoba<b> z polami </b>imie<b> typu </b>String<b>,
+      </b>rokUrodzenia<b> typu </b>int<b> wraz z konstruktorem
+        inicjującym pola oraz statyczną metodą</b></p>
+    &nbsp;&nbsp;&nbsp; public static boolean
+    wKolekcji(Collection&lt;Osoba&gt; kol, String imie, int
+    rokUrodzenia) {<br>
+    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; return kol.contains(new
+    Osoba(imie, rokUrodzenia));<br>
+    &nbsp;&nbsp;&nbsp; }<br>
+    <p><b> sprawdzającą czy kolekcja </b>kol<b> zawiera osobę z podanym
+        imieniem i rokiem urodzenia. <br>
+      </b></p>
+    <p><b>Poniższy program</b></p>
+    &nbsp;&nbsp;&nbsp; import java.util.*;<br>
+    &nbsp;&nbsp;&nbsp; import static java.lang.System.out;<br>
+    <br>
+    &nbsp;&nbsp;&nbsp; public class Test {<br>
+    &nbsp;&nbsp;&nbsp; <br>
+    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; public static void
+    main(String[] args) {<br>
+    <br>
+    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+    List&lt;Osoba&gt; lista = Arrays.asList(<br>
+    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp; new Osoba("Anna", 2000),<br>
+    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp; new Osoba("Bartek", 2001),<br>
+    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp; new Osoba("Maria", 2002)<br>
+    &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; );
+    <p>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+      out.println(Osoba.wKolekcji(lista, "Bartek", 2001));<br>
+      &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
+      out.println(Osoba.wKolekcji(lista, "Daria", 2001));<br>
+    </p>
+    <p>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+      Set&lt;Osoba&gt; tZbior = new TreeSet&lt;&gt;(lista);<br>
+      &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+      out.println(Osoba.wKolekcji(tZbior, "Bartek", 2001));<br>
+      &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+      out.println(Osoba.wKolekcji(tZbior, "Daria", 2001));<br>
+    </p>
+    <p>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+      Set&lt;Osoba&gt; hZbior = new HashSet&lt;&gt;(lista);<br>
+      &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+      out.println(Osoba.wKolekcji(hZbior, "Bartek", 2001));<br>
+      &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+      out.println(Osoba.wKolekcji(hZbior, "Daria", 2001));</p>
+    <p>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; }</p>
+    <p>&nbsp;&nbsp; }</p>
+    <p><b>powinien wydrukować następujące wyniki</b></p>
+    <b> </b>true<br>
+    false<br>
+    true<br>
+    false<br>
+    true<br>
+    false<b><br>
+    </b>
+    <p><b> a. </b><span style="font-style: italic;"></span><b>Czy
+        podany program spowoduje błędy kompilacji? Jeśli tak poprawić
+        klasę </b>Osoba<b>,</b></p>
+    <p><b> b.<span style="font-style: italic;"> </span></b><b>Czy
+        wyniki w przypadku przekazania listy do metody </b>wKolekcji<b>
+        są poprawne? </b><b><b>Jeśli nie, poprawić klasę </b></b>Osoba<b><b>
+          żeby osiągnąć poprawne wyniki,</b></b><b><br>
+      </b></p>
+    <p><b> c.<span style="font-style: italic;"> </span></b><b>Czy
+        wyniki w przypadku przekazania zbioru typu </b>TreeSet<b> do
+        metody </b>wKolekcji<b> są poprawne? </b><b><b>Jeśli nie,
+          poprawić klasę </b></b>Osoba<b><b> żeby osiągnąć poprawne
+          wyniki,</b></b></p>
+    <b> d. </b><b>Czy wyniki w przypadku przekazania zbioru typu </b>HashSet<b>
+      do metody </b>wKolekcji<b> są poprawne? </b><b><b>Jeśli nie,
+        poprawić klasę </b></b>Osoba<b><b> żeby osiągnąć poprawne
+        wyniki.</b></b><b><br>
+    </b>
+    <p><br>
+    </p>
+    <p><b><u>Zadanie 14</u></b><b><br>
+      </b> </p>
+    <p><b>Napisać program tworzący mapę typu</b></p>
+    <p><b>&nbsp;&nbsp;&nbsp; </b>Map&lt;String,
+      List&lt;Samochod&gt;&gt;</p>
+    <p><b>na podstawie danych z tablicy elementów typu </b>String<b>.
+        Każde trzy kolejne elementy tablicy stanowią nazwę salonu
+        samochodowego, markę samochodu oraz ceną samochodu (cena jest
+        podana jako </b>String<b>). W wynikowej mapie, nazwy salonów są
+        kluczami, natomiast listy samochodów (typu </b>Samochod<b>) z
+        danego salonu są wartościami.</b></p>
+    <p><b>Program powinien również wydrukować na konsoli:</b></p>
+    <p><b>a. zawartość mapy (w dowolnej formie)</b><b>,</b> </p>
+    <p><b> b.<span style="font-style: italic;"> </span></b><b>markę,
+        cenę i salon najtańszego samochodu (nie wolno używać tablicy
+        wejściowej!)<br>
+      </b></p>
+    <p><b>Dla poniższej,</b> przykładowej<b> tablicy<br>
+      </b></p>
+    <p>&nbsp;&nbsp;&nbsp; String[] arr = {<br>
+      &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; "salon A", "Mercedes",
+      "130000",<br>
+      &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; "salon B", "Mercedes",
+      "120000",<br>
+      &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; "salon C", "Ford", "110000",<br>
+      &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; "salon B", "Opel", "90000",<br>
+      &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; "salon C", "Honda", "95000",<br>
+      &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; "salon A", "Ford", "105000",<br>
+      &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; "salon A", "Renault",
+      "75000"<br>
+      &nbsp;&nbsp;&nbsp; };<b><br>
+      </b></p>
+    <p><b>programo powinien wydrukować wyniki podobne do poniższych</b></p>
+    <p>&nbsp;&nbsp;&nbsp; {salon A=[Mercedes 130000, Ford 105000,
+      Renault 75000], <br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; salon B=[Mercedes 120000, Opel
+      90000], <br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; salon C=[Ford 110000, Honda 95000]}<br>
+      &nbsp;&nbsp;&nbsp; <br>
+      &nbsp;&nbsp;&nbsp; Renault, salon A, 75000<b><br>
+      </b></p>
+    <p><b><br>
+      </b><br>
+      <b><font size="+1">Strumienie (Stream API)<br>
+          <br>
+        </font></b></p>
+    <b><u>Zadanie 15</u></b><b><br>
+    </b>
+    <p><b> Napisać program do czytania pliku (z kodowaniem </b>UTF-8<b>)
+        zawierającego informacje o studentach: imię, numer grupy oraz
+        wynik. <br>
+      </b></p>
+    <p><b>Przykładowa zawartość pliku:<br>
+      </b></p>
+    <p>Maria 12c 78<br>
+      Janina 12c 90<br>
+      Bartek 13c 68<br>
+      Wiktor 12c 45<br>
+      Kasia 12c 66<br>
+      Janek 13c 66</p>
+    <p><b>Wykorzystując strumienie (</b><b>bez użycia instrukcji pętli)</b></p>
+    <p><b>a. Wyświetlić liczbę studentów z wynikiem co najmniej </b>50<b>,</b></p>
+    <p><b>b. Wyświetlić studentów z wynikiem co najmniej </b>50<b>,
+        posortowanych według numeru grupy, </b><b><b>a dla tej samej
+          grupy </b>według wyniku. Dla powyższego pliku, wyniki mogłyby
+        wygladać następująco:</b></p>
+    <p style="background-color: white;">12c Kasia 66<br>
+      12c Maria 78<br>
+      12c Janina 90<br>
+      13c Janek 66<br>
+      13c Bartek 68</p>
+    <p><b>c. Utwórz mapę, której kluczem jest numer grupy a wartością
+        jest lista studentów tej grupy. Wydrukować utworzoną mapę.
+        Zakładając dostępność odpowiedniej metody </b>toString<b> w
+        klasie </b>Student<b>, wyniki mogłyby wyglądać następująco:</b></p>
+    <p>Gupa 13c = [Bartek(13c)-68, Janek(13c)-66]<br>
+      Grupa 12c = [Maria(12c)-78, Janina(12c)-90, Wiktor(12c)-45,
+      Kasia(12c)-66]<b><br>
+      </b></p>
+    <p><b><br>
+      </b></p>
+    <p><b><u> Zadanie 16</u><br>
+      </b></p>
+    <p><b>Wykorzystując strumienie (bez użycia instrukcji pętli) n</b><b>apisać
+        klasę </b>Slowa<b> implementującą interfejs </b>Iterable<b> w
+        taki sposób, aby następujący program, czytając plik </b>"slowa.txt"<b>
+        (z kodowaniem </b>UTF-8<b>) wydrukował w kolejnych liniach
+        słowa z pliku razem z liczbą wystąpień.<br>
+      </b></p>
+    <p><br>
+      import java.util.Map.*;<br>
+      <br>
+      public class Test {<br>
+      <br>
+      &nbsp;&nbsp;&nbsp; public static void main(String[] args) {<br>
+      &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp; <br>
+      &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; String file = "slowa.txt";<br>
+      &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; for (Map.Entry&lt;String,
+      Integer&gt; e : new Slowa(file))<br>
+      &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+      System.out.println(<br>
+      &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp; e.getKey() + " -&gt; " + e.getValue());<br>
+      &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp; <br>
+      &nbsp;&nbsp;&nbsp; }<br>
+      <br>
+      }</p>
+    <p><b>Nie wolno modyfikować klasy </b>Test<b>.<br>
+      </b></p>
+    <p><b>Przykładowo, jeśli plik zawiera następujący tekst<br>
+      </b></p>
+    <p>kitty, paul 123 ;;GÖTEBORG<br>
+      Göteborg [Łódź] ŁÓDŹ<br>
+      KITTY PAUL<br>
+      Paul - Kitty łódź<b><br>
+      </b></p>
+    <p><b>to wyniki mogłyby wyglądać następująco (kolejność może być
+        inna):<br>
+      </b></p>
+    <p>ŁÓDŹ -&gt; 3<br>
+      KITTY -&gt; 3<br>
+      GÖTEBORG -&gt; 2<br>
+      PAUL -&gt; 3<b><br>
+      </b><b> </b> </p>
+  </body>
+</html>
